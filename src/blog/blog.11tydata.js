@@ -1,5 +1,5 @@
 export default {
-    layout: "layouts/post.njk",
+    layout: "layouts/post.html",
     tags: ["post"],
     eleventyComputed: {
         date: data => {
