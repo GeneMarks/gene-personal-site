@@ -13,17 +13,28 @@ export default function(config) {
     config.addPassthroughCopy("src/assets/js/**/*");
 
     // Filters
-    config.addFilter("printDate", (value) => {
+    config.addFilter("formatBuildDate", (value) => {
         const formatted = new Intl.DateTimeFormat("en-US", {
-            timeZone: "America/New_York",
+            timeZone: "UTC",
             weekday: "short",
             year: "numeric",
             month: "short",
             day: "2-digit",
             hour: "2-digit",
             minute: "2-digit",
-            second: "2-digit",
             timeZoneName: "short"
+        }).format(value);
+
+        return formatted;
+    });
+
+    config.addFilter("formatPostDate", (value) => {
+        const formatted = new Intl.DateTimeFormat("en-US", {
+            timeZone: "UTC",
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "2-digit",
         }).format(value);
 
         return formatted;
