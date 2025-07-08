@@ -1,8 +1,9 @@
----
-layout: layouts/default.html
+---js
+const layout = "layouts/default.html";
+const build = new Date();
 ---
 
-<div class="flex justify-center items-end mt-8 mx-3 h-[58px] bg-header border-3 border-double lg:mx-0 sm:justify-between">
+<div class="flex justify-center items-end mt-8 mx-3 h-[58px] bg-header border-3 border-double sm:justify-between">
     <a href="/">
         <img src="/assets/images/logo.png" alt="gene marks" class="border-double hover:-hue-rotate-15 hover:brightness-90 sm:border-r-3" style="image-rendering: pixelated">
     </a>
@@ -15,7 +16,7 @@ layout: layouts/default.html
     </div>
 </div>
 
-<div class="mx-3 lg:mx-0">
+<div class="mx-3">
     <p class="mt-6">This is a little paragraph that something can go here i guess</p>
 
     <h2 class="mt-8 pb-2 text-xl font-bold border-b-3 border-double">Links</h2>
@@ -72,7 +73,7 @@ layout: layouts/default.html
         <li class="md:ml-auto"><a href="https://www.digitalocean.com/?refcode=0fe6a860a06e&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"><img class="h-[31px]" src="/assets/images/buttons/digitalocean.svg" alt="DigitalOcean Referral Badge" /></a></li>
     </ul>
 
-    <p class="mt-2">Last updated {{ buildDate }}</p>
+    <p class="mt-2">Last updated {{ build | printDate }}</p>
 </footer>
 
 <script src="/assets/js/sprite-loader.js" defer></script>
