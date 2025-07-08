@@ -1,0 +1,78 @@
+---
+layout: layouts/default.njk
+---
+
+<div class="flex justify-center items-end mt-8 pr-4 h-[52px] border-double sm:justify-normal sm:border-b-3">
+    <a href="/">
+        <img src="/assets/images/logo.png" alt="gene marks" class="hover:-hue-rotate-15 hover:brightness-90" style="image-rendering: pixelated">
+    </a>
+
+    <div class="hidden w-[80px] -ml-2 sm:block">
+        <noscript>
+            <img src="/assets/images/gene_sprites/5.gif" class="drop-shadow-md" style="-mt-12 image-rendering: pixelated; filter: drop-shadow(12px 0px 0px rgba(0, 0, 0, 0.2));">
+        </noscript>
+        <img id="gene-sprite" class="drop-shadow-md" style="image-rendering: pixelated; filter: drop-shadow(12px 0px 0px rgba(0, 0, 0, 0.2));">
+    </div>
+</div>
+
+<div class="mx-3 lg:mx-0">
+    <p class="mt-6">This is a little paragraph that something can go here i guess</p>
+
+    <h2 class="mt-8 pb-2 text-xl font-bold border-b-3 border-double">Links</h2>
+    <ul class="list-disc mt-2 ml-6">
+        <li>
+            <a class="underline text-blue-700 visited:text-purple-800 hover:text-primary hover:bg-secondary" href="https://github.com/GeneMarks">github</a>
+        </li>
+        <li>linkedin</li>
+        <li>
+            <a class="underline text-blue-700 visited:text-purple-800 hover:text-primary hover:bg-secondary" href="mailto:&#103&#101&#110&#101&#109&#97&#114&#107&#115&#55&#52&#64&#103&#109&#97&#105&#108&#46&#99&#111&#109" title="&#103&#101&#110&#101&#109&#97&#114&#107&#115&#55&#52&#64&#103&#109&#97&#105&#108&#46&#99&#111&#109">&#103&#101&#110&#101&#109&#97&#114&#107&#115&#55&#52&#64&#103&#109&#97&#105&#108&#46&#99&#111&#109</a>
+        </li>
+    </ul>
+
+    <h2 class="mt-8 pb-2 text-xl font-bold border-b-3 border-double">
+        <a class="text-xl font-bold underline text-blue-700 visited:text-purple-800 hover:text-primary hover:bg-secondary" href="https://github.com/GeneMarks">Projects</a>
+    </h2>
+    <div class="mt-2">
+        <ul>
+        {%- for project in collections.projects -%}
+            <li class="flex flex-col mt-3 sm:flex-row sm:items-center sm:gap-4 sm:mt-auto">
+                {% set statusStyles = projectStatusStyles[project.data.status] or projectStatusStyles.default %}
+                <div class="hidden px-1 font-mono text-sm md:block {{ statusStyles }}">{{ project.data.status }}</div>
+                <div class="hidden px-1 border-1 border-secondary font-mono text-sm md:block">{{ project.data.language }}</div>
+                <a class="py-1 underline text-blue-700 visited:text-purple-800 hover:bg-secondary hover:text-primary" href="{{ project.data.link }}">{{ project.data.title }}</a>
+                <p>This is the description of the thing to the left.</p>
+            </li>
+        {%- endfor -%}
+        </ul>
+    </div>
+
+    <h2 class="mt-8 pb-2 text-xl font-bold border-b-3 border-double">Blog posts</h2>
+    <div class="mt-2">
+        <ul>
+        {%- for post in collections.post | reverse -%}
+            <li class="flex gap-4">
+                <div class="py-1">{{ post.date.toLocaleDateString("en-CA", { timeZone: "UTC" }) }}</div>
+                <a class="flex-1 py-1 underline text-blue-700 visited:text-purple-800 hover:bg-secondary hover:text-primary" href="{{ post.url }}">{{ post.data.title }}</a>
+            </li>
+        {%- endfor -%}
+        </ul>
+    </div>
+
+</div>
+
+<footer class="mx-3 mt-12 mb-6 pt-3 border-t-3 border-double lg:mx-0">
+    <ul class="flex flex-wrap gap-1">
+        <li><img src="/assets/images/buttons/any_browser.gif"></li>
+        <li><a href="https://neovim.io/"><img src="/assets/images/buttons/neovim.gif"></a></li>
+        <li><a href="https://voidlinux.org/"><img src="/assets/images/buttons/void.gif"></a></li>
+        <li><a href="https://archive.org/"><img src="/assets/images/buttons/internetarchive.gif"></a></li>
+        <li><a href="https://ffmpeg.org/"><img src="/assets/images/buttons/ffmpeg.gif"></a></li>
+        <li><a href="https://jellyfin.org/"><img src="/assets/images/buttons/jellyfin.gif"></a></li>
+        <li><a href="https://www.mamedev.org/"><img src="/assets/images/buttons/mame.gif"></a></li>
+        <li class="md:ml-auto"><a href="https://www.digitalocean.com/?refcode=0fe6a860a06e&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"><img class="h-[31px]" src="/assets/images/buttons/digitalocean.svg" alt="DigitalOcean Referral Badge" /></a></li>
+    </ul>
+
+    <p class="mt-2">Last updated {{ buildDate }}</p>
+</footer>
+
+<script src="/assets/js/sprite-loader.js" defer></script>
