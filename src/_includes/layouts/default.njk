@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{{ '/assets/css/tailwind.css' | url }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ title or "Gene Marks" }}</title>
+    </head>
+    <body class="flex justify-center bg-background text-secondary font-[serif]">
+        <div class="w-full max-w-4xl">
+            {{ content | safe }}
+        </div>
+    </body>
+</html>
