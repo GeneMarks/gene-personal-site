@@ -1,0 +1,21 @@
+.blogPost>* { @apply mb-4; }
+
+.blogPost a { @apply underline hover:text-primary hover:bg-secondary; }
+
+.blogPost>h1, .blogPost>h2, .blogPost>h3 { @apply underline mt-10; }
+.blogPost h1 { @apply text-2xl; }
+.blogPost h2 { @apply text-xl; }
+.blogPost h3 { @apply text-lg; }
+
+.blogPost ul, ol { @apply ml-6; }
+.blogPost ul { @apply list-disc; }
+.blogPost ol { @apply list-decimal; }
+
+.blogPost pre { @apply p-4 border-3 border-double bg-background-alt; }
+.blogPost pre>code { @apply bg-transparent p-0; }
+.blogPost code { @apply text-accent py-1 px-2 bg-background-alt-accent; }
+
+.blogPost blockquote { @apply p-4 border-l-3 border-double bg-background-alt-accent; }
+.blogPost blockquote cite { @apply block mt-2 before:content-['—'] before:mr-2; }
+
+.blogPost blockquote, .blogPost img, .blogPost pre { @apply my-8; }
