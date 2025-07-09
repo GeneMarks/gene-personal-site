@@ -3,5 +3,7 @@
     --color-primary: #ffffff;
     --color-secondary: #000000;
     --color-background: #e8e4dd;
-    --color-header: #c1ba81;
+    --color-background-alt: #c1ba81;
+    --color-background-alt-accent: #d0ccc5;
+    --color-accent: #4d592a;
 }
