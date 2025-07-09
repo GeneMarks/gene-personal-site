@@ -1,3 +1,5 @@
+import footnote_plugin from "markdown-it-footnote";
+
 export const config = {
       htmlTemplateEngine: "njk",
 };
@@ -11,6 +13,12 @@ export default function(config) {
     config.addPassthroughCopy("src/assets/fonts/**/*");
     config.addPassthroughCopy("src/assets/images/**/*");
     config.addPassthroughCopy("src/assets/js/**/*");
+
+    // Plugins
+    config.amendLibrary("md", (mdLib) => mdLib.use(footnote_plugin));
+
+    // Global data
+    config.addGlobalData("build", new Date());
 
     // Filters
     config.addFilter("formatBuildDate", (value) => {
