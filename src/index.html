@@ -1,18 +1,17 @@
----js
-const layout = "layouts/default.html";
-const build = new Date();
+---
+layout: layouts/default.html
 ---
 
-<div class="flex justify-center items-end mt-8 mx-3 h-[58px] bg-header border-3 border-double sm:justify-between">
+<div class="flex justify-center items-end mt-8 mx-3 h-[58px] bg-background-alt border-3 border-double sm:justify-between">
     <a href="/">
         <img src="/assets/images/logo.png" alt="gene marks" class="border-double hover:-hue-rotate-15 hover:brightness-90 sm:border-r-3" style="image-rendering: pixelated">
     </a>
 
     <div class="hidden w-[80px] sm:block">
         <noscript>
-            <img src="/assets/images/gene_sprites/5.gif" class="drop-shadow-md" style="-mt-12 image-rendering: pixelated; filter: drop-shadow(12px 0px 0px rgba(0, 0, 0, 0.2));">
+            <img src="/assets/images/gene_sprites/5.gif" style="-mt-12 image-rendering: pixelated; filter: drop-shadow(12px 0px 0px rgba(0, 0, 0, 0.2));">
         </noscript>
-        <img id="gene-sprite" class="drop-shadow-md" style="image-rendering: pixelated; filter: drop-shadow(12px 0px 0px rgba(0, 0, 0, 0.2));">
+        <img id="gene-sprite" style="image-rendering: pixelated; filter: drop-shadow(12px 0px 0px rgba(0, 0, 0, 0.2));">
     </div>
 </div>
 
@@ -24,7 +23,9 @@ const build = new Date();
         <li>
             <a class="underline text-blue-700 visited:text-purple-800 hover:text-primary hover:bg-secondary" href="https://github.com/GeneMarks">github</a>
         </li>
-        <li>linkedin</li>
+        <li>
+            <a class="underline text-blue-700 visited:text-purple-800 hover:text-primary hover:bg-secondary" href="https://www.linkedin.com/in/eugenemarks/">linkedin</a>
+        </li>
         <li>
             <a class="underline text-blue-700 visited:text-purple-800 hover:text-primary hover:bg-secondary" href="mailto:&#103&#101&#110&#101&#109&#97&#114&#107&#115&#55&#52&#64&#103&#109&#97&#105&#108&#46&#99&#111&#109" title="&#103&#101&#110&#101&#109&#97&#114&#107&#115&#55&#52&#64&#103&#109&#97&#105&#108&#46&#99&#111&#109">&#103&#101&#110&#101&#109&#97&#114&#107&#115&#55&#52&#64&#103&#109&#97&#105&#108&#46&#99&#111&#109</a>
         </li>
@@ -61,19 +62,6 @@ const build = new Date();
 
 </div>
 
-<footer class="mx-3 mt-12 mb-6 pt-3 border-t-3 border-double lg:mx-0">
-    <ul class="flex flex-wrap gap-1">
-        <li><img src="/assets/images/buttons/any_browser.gif"></li>
-        <li><a href="https://neovim.io/"><img src="/assets/images/buttons/neovim.gif"></a></li>
-        <li><a href="https://voidlinux.org/"><img src="/assets/images/buttons/void.gif"></a></li>
-        <li><a href="https://archive.org/"><img src="/assets/images/buttons/internetarchive.gif"></a></li>
-        <li><a href="https://ffmpeg.org/"><img src="/assets/images/buttons/ffmpeg.gif"></a></li>
-        <li><a href="https://jellyfin.org/"><img src="/assets/images/buttons/jellyfin.gif"></a></li>
-        <li><a href="https://www.mamedev.org/"><img src="/assets/images/buttons/mame.gif"></a></li>
-        <li class="md:ml-auto"><a href="https://www.digitalocean.com/?refcode=0fe6a860a06e&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"><img class="h-[31px]" src="/assets/images/buttons/digitalocean.svg" alt="DigitalOcean Referral Badge" /></a></li>
-    </ul>
-
-    <p class="mt-2">Last updated {{ build | formatBuildDate }}</p>
-</footer>
+{% include "partials/footer.html" %}
 
 <script src="/assets/js/sprite-loader.js" defer></script>
