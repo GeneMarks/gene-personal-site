@@ -13,6 +13,7 @@ export default function(config) {
     config.addPassthroughCopy("src/assets/fonts/**/*");
     config.addPassthroughCopy("src/assets/images/**/*");
     config.addPassthroughCopy("src/assets/js/**/*");
+    config.addPassthroughCopy("src/assets/blog/**/*");
 
     // Plugins
     config.amendLibrary("md", (mdLib) => mdLib.use(footnote_plugin));
