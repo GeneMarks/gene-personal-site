@@ -7,9 +7,10 @@
 .blogPost h2 { @apply text-xl; }
 .blogPost h3 { @apply text-lg; }
 
-.blogPost ul, ol { @apply ml-6; }
+.blogPost ul, .blogPost ol { @apply ml-6; }
 .blogPost ul { @apply list-disc; }
 .blogPost ol { @apply list-decimal; }
+.blogPost li { @apply not-first:mt-3; }
 
 .blogPost pre { @apply p-4 border-3 border-double bg-background-alt; }
 .blogPost pre>code { @apply bg-transparent p-0; }
