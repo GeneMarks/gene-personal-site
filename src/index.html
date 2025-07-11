@@ -3,9 +3,11 @@ layout: layouts/default.html
 ---
 
 <div class="flex justify-center items-end mt-8 mx-3 h-[58px] bg-background-alt border-3 border-double sm:justify-between">
+    <div class="flex-1 h-full bg-accent sm:hidden"></div>
     <a href="/">
         <img src="/assets/images/logo.png" alt="gene marks" class="border-double hover:-hue-rotate-15 hover:brightness-90 sm:border-r-3" style="image-rendering: pixelated">
     </a>
+    <div class="flex-1 h-full bg-accent sm:hidden"></div>
 
     <div class="hidden w-[80px] sm:block">
         <noscript>
@@ -37,12 +39,12 @@ layout: layouts/default.html
     <div class="mt-2">
         <ul>
         {%- for project in collections.projects -%}
-            <li class="flex flex-col mt-3 sm:flex-row sm:items-center sm:gap-4 sm:mt-auto">
-                {% set statusStyles = projectStatusStyles[project.data.status] or projectStatusStyles.default %}
-                <div class="hidden px-1 font-mono text-sm md:block {{ statusStyles }}">{{ project.data.status }}</div>
-                <div class="hidden px-1 border-1 border-secondary font-mono text-sm md:block">{{ project.data.language }}</div>
+            <li class="flex flex-wrap items-center gap-x-3 mt-4 xl:gap-x-4 xl:mt-auto xl:flex-nowrap">
                 <a class="py-1 underline text-blue-700 visited:text-purple-800 hover:bg-secondary hover:text-primary" href="{{ project.data.link }}">{{ project.data.title }}</a>
-                <p>This is the description of the thing to the left.</p>
+                {% set statusStyles = projectStatusStyles[project.data.status] or projectStatusStyles.default %}
+                <div class="px-1 border-1 border-secondary font-mono text-sm">{{ project.data.language }}</div>
+                <div class="px-1 font-mono text-sm {{ statusStyles }}">{{ project.data.status }}</div>
+                <p class="w-full xl:w-auto">{{ project.data.desc }}</p>
             </li>
         {%- endfor -%}
         </ul>

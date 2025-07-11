@@ -22,7 +22,7 @@ export default function(config) {
     config.addGlobalData("build", new Date());
 
     // Filters
-    config.addFilter("formatBuildDate", (value) => {
+    config.addFilter("formatDetailedDateTime", (value) => {
         const formatted = new Intl.DateTimeFormat("en-US", {
             timeZone: "UTC",
             weekday: "short",
