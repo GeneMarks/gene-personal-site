@@ -38,7 +38,7 @@ layout: layouts/default.html
     </h2>
     <div class="mt-2">
         <ul>
-        {%- for project in collections.projects -%}
+        {%- for project in collections.sortedProjects -%}
             <li class="flex flex-wrap items-center gap-x-3 mt-4 xl:gap-x-4 xl:mt-auto xl:flex-nowrap">
                 <a class="py-1 underline text-blue-700 visited:text-purple-800 hover:bg-secondary hover:text-primary" href="{{ project.data.link }}">{{ project.data.title }}</a>
                 {% set statusStyles = projectStatusStyles[project.data.status] or projectStatusStyles.default %}
