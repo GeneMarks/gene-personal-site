@@ -11,7 +11,7 @@ Its heart and soul being **mergerfs**.
 ## What is mergerfs?
 > mergerfs is a FUSE based union filesystem geared towards simplifying storage and management of files across numerous commodity storage devices. It is similar to mhddfs, unionfs, and aufs.<cite>[trapexit/mergerfs](https://github.com/trapexit/mergerfs)</cite>
 
-If just one thing is taken away, let it be "*union filesystem*." Essentially, mergerfs lets you pool multiple directories or filesystems into a single mount point. There are many reasons you might want to achieve this, but my main use case is for serving the media and metadata for Jellyfin together on a Proxmox LXC.
+If just one thing is taken away, let it be "*union filesystem*." Essentially, mergerfs lets you pool multiple directories or filesystems into a single mount point. There are many reasons you might want to achieve this, but my main use case is for serving the media and metadata for Jellyfin together in a Proxmox LXC.
 
 More specifically, the media itself, located on a NAS, is mounted as a read-only SMB share. The metadata - including .nfo's, images, and subtitles - are located directly in the Jellyfin container.
 
@@ -44,7 +44,7 @@ After a full reboot, you should see a readable /mnt/media share on the Jellyfin 
 
 *Now comes the fun part.*
 
-Before installing mergerfs, we need to understand the filesystem structure of the folders that will be involved in the merge. Here is a sample of my media mount:
+Before installing mergerfs, we need to understand the filesystem structure of the folders involved in the merge. Here is a sample of my media mount:
 
 ```
 /mnt/media/
