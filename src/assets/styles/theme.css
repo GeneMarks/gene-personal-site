@@ -1,4 +1,8 @@
 @theme {
+    /* Fonts */
+    --font-serif: "Noto Serif", Cambria, Georgia, "New York", serif;
+    --font-sans: "Noto Sans", "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+
     /* Colors */
     --color-primary: #ffffff;
     --color-secondary: #000000;
