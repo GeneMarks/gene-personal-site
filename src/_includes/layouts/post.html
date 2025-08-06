@@ -12,7 +12,7 @@ layout: layouts/default.html
 
         <div class="blogPost mx-3 mt-8">
             {{ content | safe }}
-            <div class="text-sm italic">Modified {{ modified | formatDetailedDateTime }}</div>
+            <div class="italic">Modified {{ modified | formatDetailedDateTime }}</div>
         </div>
 
         {% include "partials/footer.html" %}
