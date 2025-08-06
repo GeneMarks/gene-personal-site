@@ -1,0 +1,13 @@
+.drift {
+    display: inline-block;
+    animation: driftAnimation 8s ease-in-out infinite;
+}
+
+@keyframes driftAnimation {
+    0%, 100% {
+        letter-spacing: normal;
+    }
+    50% {
+        letter-spacing: 0.25em;
+    }
+}
