@@ -10,6 +10,19 @@
         <li class="lg:ml-auto"><a href="https://www.digitalocean.com/?refcode=0fe6a860a06e&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"><img class="h-[31px]" src="/assets/images/buttons/digitalocean.svg" alt="DigitalOcean Referral Badge" /></a></li>
     </ul>
 
-    <p class="mt-6">copyleft &copy; 2025 <a class="underline hover:text-primary hover:bg-secondary" href="/">Gene Marks</a> <a class="underline hover:text-primary hover:bg-secondary" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
-    <p class="mt-1 text-sm">Site last updated {{ build | formatDetailedDateTime }}</p>
+    <div class="flex justify-center mt-8 bg-background-alt border-3 border-double sm:h-[68px] sm:justify-between">
+        <div class="self-center m-3 text-accent sm:my-0">
+            <p>copyleft &copy; 2025 <a class="underline hover:text-primary hover:bg-secondary" href="/">Gene Marks</a> <a class="underline hover:text-primary hover:bg-secondary" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
+            <p class="mt-1">Site last updated {{ build | formatDetailedDateTime }}</p>
+        </div>
+
+        <div class="hidden w-[80px] self-end sm:block">
+            <noscript>
+                <img src="/assets/images/gene_sprites/5.gif" style="-mt-12 image-rendering: pixelated; filter: drop-shadow(12px 0px 0px rgba(0, 0, 0, 0.2));">
+            </noscript>
+            <img id="gene-sprite" style="image-rendering: pixelated; filter: drop-shadow(12px 0px 0px rgba(0, 0, 0, 0.2));">
+        </div>
+    </div>
+
+    <script src="/assets/js/sprite-loader.js" defer></script>
 </footer>

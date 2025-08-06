@@ -2,12 +2,11 @@
 layout: layouts/default.html
 ---
 
-<div class="flex justify-center items-end mt-8 mx-3 h-[58px] bg-background-alt border-3 border-double sm:justify-between">
-    <div class="flex-1 h-full bg-accent sm:hidden"></div>
-    <a href="/">
-        <img src="/assets/images/logo.png" alt="gene marks" class="border-double hover:-hue-rotate-15 hover:brightness-90 sm:border-r-3" style="image-rendering: pixelated">
+<div class="mt-8 mx-3">
+    <a href="/" class="inline-block">
+        <h1 class="text-3xl font-bold underline hover:text-primary hover:bg-secondary">Gene Marks</h1>
     </a>
-    <div class="flex-1 h-full bg-accent sm:hidden"></div>
+</div>
 
     <div class="hidden w-[80px] sm:block">
         <noscript>
@@ -62,5 +61,3 @@ layout: layouts/default.html
 </div>
 
 {% include "partials/footer.html" %}
-
-<script src="/assets/js/sprite-loader.js" defer></script>
