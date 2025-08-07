@@ -1,6 +1,6 @@
 .blogPost>* { @apply mb-6 break-words; }
 
-.blogPost a { @apply underline hover:text-primary hover:bg-secondary; }
+.blogPost a { @apply underline text-blue-700 visited:text-purple-800 hover:text-primary hover:bg-secondary; }
 
 .blogPost img { @apply inline-block my-4; }
 
