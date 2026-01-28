@@ -66,6 +66,7 @@ export default function(config) {
     config.addPassthroughCopy("src/assets/images/**/*");
     config.addPassthroughCopy("src/assets/js/**/*");
     config.addPassthroughCopy("src/assets/blog/**/*");
+    config.addPassthroughCopy("src/public_key.asc");
     config.addPassthroughCopy("src/favicon.jpg");
 
     // Plugins
