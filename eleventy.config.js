@@ -72,4 +72,6 @@ export default function(config) {
     // Plugins
     config.amendLibrary("md", (mdLib) => mdLib.use(footnote_plugin));
 
+    // Shortcodes
+    config.addShortcode("year", () => `${new Date().getFullYear()}`);
 };
