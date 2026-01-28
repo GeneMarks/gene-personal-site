@@ -2,58 +2,27 @@
 layout: layouts/default.html
 ---
 
-<div class="mt-8 mx-3">
-    <a href="/" class="inline-block">
-        <h1 class="text-3xl font-bold underline hover:text-primary hover:bg-secondary">Gene Marks</h1>
-    </a>
+{% set posts = collections.post | reverse %}
+
+<ul>
+    {%- for post in posts -%}
+
+    {% set first_item = posts | first == post %}
+
+    <li class="{{ "mt-5" if not first_item }} {{ "sm:mt-2" if not first_item }} flex flex-col sm:gap-10 sm:flex-row">
+        <div class="flex-none">
+            {{ post.date.toLocaleDateString("en-CA", { timeZone: "UTC" }) }}
+        </div>
+        <a href="{{ post.url }}" class="w-full text-primarylink underline hover:text-primarylinkhover hover:bg-primarylinkhoverbg">{{ post.data.title }}</a>
+    </li>
+    {%- endfor -%}
+</ul>
+
+<div class="hidden fixed bottom-0 right-28 xl:block">
+    <noscript>
+        <img src="/assets/images/gene_sprites/7.gif" style="-mt-12 image-rendering: pixelated; filter: drop-shadow(12px 0px 0px rgba(0, 0, 0, 0.2));">
+    </noscript>
+    <img id="gene-sprite" style="image-rendering: pixelated; filter: drop-shadow(12px 0px 0px rgba(0, 0, 0, 0.2));">
 </div>
 
-<div class="mx-3 mt-3 bg-[#ccc] border-3 border-double">
-    <p class="m-2">Submitted for your approval… a modest patch of the web, somewhere in the boundless digital frontier.<br>A quiet space where small signals <span class="drift text-center w-[160px] italic">drift outward</span>, searching for a listener in the endless static of the net.</p>
-</div>
-
-<div class="mx-3">
-    <h2 class="mt-8 pb-2 text-xl font-bold border-b-3 border-double">
-        <a class="text-xl font-bold underline text-blue-700 visited:text-purple-800 hover:text-primary hover:bg-secondary" href="https://github.com/GeneMarks">Projects</a>
-    </h2>
-    <div class="mt-2">
-        <ul>
-        {%- for project in collections.sortedProjects -%}
-            <li class="flex flex-wrap items-center gap-x-3 mt-4 xl:gap-x-4 xl:mt-auto xl:flex-nowrap">
-                <a class="py-1 underline text-blue-700 visited:text-purple-800 hover:bg-secondary hover:text-primary" href="{{ project.data.link }}">{{ project.data.title }}</a>
-                {% set statusStyles = projectStatusStyles[project.data.status] or projectStatusStyles.default %}
-                <div class="px-1 border-1 border-secondary font-mono text-sm">{{ project.data.language }}</div>
-                <div class="px-1 font-mono text-sm {{ statusStyles }}">{{ project.data.status }}</div>
-                <p class="w-full xl:w-auto">{{ project.data.desc }}</p>
-            </li>
-        {%- endfor -%}
-        </ul>
-    </div>
-
-    <h2 class="mt-8 pb-2 text-xl font-bold border-b-3 border-double">Blog posts</h2>
-    <div class="mt-2">
-        <ul>
-        {%- for post in collections.post | reverse -%}
-            <li class="flex gap-4">
-                <div class="py-1">{{ post.date.toLocaleDateString("en-CA", { timeZone: "UTC" }) }}</div>
-                <a class="flex-1 py-1 underline text-blue-700 visited:text-purple-800 hover:bg-secondary hover:text-primary" href="{{ post.url }}">{{ post.data.title }}</a>
-            </li>
-        {%- endfor -%}
-        </ul>
-    </div>
-
-    <h2 class="mt-8 pb-2 text-xl font-bold border-b-3 border-double">Links</h2>
-    <ul class="list-disc mt-2 ml-6">
-        <li>
-            <a class="underline text-blue-700 visited:text-purple-800 hover:text-primary hover:bg-secondary" href="https://github.com/GeneMarks">github</a>
-        </li>
-        <li>
-            <a class="underline text-blue-700 visited:text-purple-800 hover:text-primary hover:bg-secondary" href="https://www.linkedin.com/in/eugenemarks/">linkedin</a>
-        </li>
-        <li>
-            <a class="underline text-blue-700 visited:text-purple-800 hover:text-primary hover:bg-secondary" href="mailto:&#103&#101&#110&#101&#109&#97&#114&#107&#115&#55&#52&#64&#103&#109&#97&#105&#108&#46&#99&#111&#109" title="&#103&#101&#110&#101&#109&#97&#114&#107&#115&#55&#52&#64&#103&#109&#97&#105&#108&#46&#99&#111&#109">&#103&#101&#110&#101&#109&#97&#114&#107&#115&#55&#52&#64&#103&#109&#97&#105&#108&#46&#99&#111&#109</a>
-        </li>
-    </ul>
-</div>
-
-{% include "partials/footer.html" %}
+<script src="/assets/js/sprite-loader.js" defer></script>
