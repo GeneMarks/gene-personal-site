@@ -1,28 +1,21 @@
-<footer class="mx-3 my-12 pt-3 border-t-3 border-double">
-    <ul class="flex flex-wrap gap-1" style="image-rendering: pixelated;">
-        <li><img src="/assets/images/buttons/any_browser.gif"></li>
-        <li><a href="https://neovim.io/"><img src="/assets/images/buttons/neovim.gif"></a></li>
-        <li><a href="https://voidlinux.org/"><img src="/assets/images/buttons/void.gif"></a></li>
-        <li><a href="https://archive.org/"><img src="/assets/images/buttons/internetarchive.gif"></a></li>
-        <li><a href="https://ffmpeg.org/"><img src="/assets/images/buttons/ffmpeg.gif"></a></li>
-        <li><a href="https://jellyfin.org/"><img src="/assets/images/buttons/jellyfin.gif"></a></li>
-        <li><a href="https://www.mamedev.org/"><img src="/assets/images/buttons/mame.gif"></a></li>
-        <li class="lg:ml-auto"><a href="https://www.digitalocean.com/?refcode=0fe6a860a06e&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"><img class="h-[31px]" src="/assets/images/buttons/digitalocean.svg" alt="DigitalOcean Referral Badge" /></a></li>
-    </ul>
+<footer class="flex flex-col items-center pt-6 pb-14 px-6 text-footertext xl:flex-row xl:items-baseline">
+    <div class="flex-1 hidden xl:block"></div>
 
-    <div class="flex justify-center mt-8 bg-background-alt border-3 border-double sm:h-[68px] sm:justify-between">
-        <div class="self-center m-2 text-accent sm:my-0">
-            <p>copyleft &copy; 2025 <a class="underline hover:text-primary hover:bg-secondary" href="/">Gene Marks</a> <a class="underline hover:text-primary hover:bg-secondary" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
-            <p class="mt-0.5">Site last updated {{ build | formatDetailedDateTime }} | <a href="https://github.com/GeneMarks/gene-personal-site/" class="underline hover:text-primary hover:bg-secondary">Source</a></p>
+    <div class="w-full max-w-4xl">
+        <div>
+            <div>{% year %} <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="text-footerlink hover:text-footerlinkhover hover:bg-footerlinkhoverbg underline">CC BY-NC-SA 4.0</a></div>
+            <div>Made with <a target="_blank" href="https://www.11ty.dev/" class="text-footerlink hover:text-footerlinkhover hover:bg-footerlinkhoverbg underline">11ty</a>; <a target="_blank" href="https://github.com/GeneMarks/gene-personal-site" class="text-footerlink hover:text-footerlinkhover hover:bg-footerlinkhoverbg underline">Source code</a> licensed under <a target="_blank" href="https://opensource.org/license/mit" class="text-footerlink hover:text-footerlinkhover hover:bg-footerlinkhoverbg underline">MIT</a></div>
         </div>
 
-        <div class="hidden w-[80px] self-end sm:block">
-            <noscript>
-                <img src="/assets/images/gene_sprites/5.gif" style="-mt-12 image-rendering: pixelated; filter: drop-shadow(12px 0px 0px rgba(0, 0, 0, 0.2));">
-            </noscript>
-            <img id="gene-sprite" style="image-rendering: pixelated; filter: drop-shadow(12px 0px 0px rgba(0, 0, 0, 0.2));">
+        <div class="mt-8">
+            <div>Cascadia Code licensed under the <a target="_blank" href="https://github.com/microsoft/cascadia-code/blob/main/LICENSE" class="text-footerlink hover:text-footerlinkhover hover:bg-footerlinkhoverbg underline">SIL Open Font License 1.1</a></div>
+            <div><a target="_blank" href="https://www.dafont.com/zaken-manus.font" class="text-footerlink hover:text-footerlinkhover hover:bg-footerlinkhoverbg underline">Zaken Manus</a> by Måns Grebäck licensed for personal use</div>
+        </div>
+
+        <div class="mt-8">
+            <div>PGP: <a href="/public_key.asc" class="text-footerlink hover:text-footerlinkhover hover:bg-footerlinkhoverbg underline">EDBC C42D 555B 87F4 4354 1026 8160 4182 EB4E E357</a></div>
         </div>
     </div>
 
-    <script src="/assets/js/sprite-loader.js" defer></script>
+    <div class="flex-1 hidden min-w-[360px] ml-4 xl:block"></div>
 </footer>
