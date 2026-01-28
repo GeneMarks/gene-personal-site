@@ -4,4 +4,3 @@
 @import "tailwindcss/preflight" layer(base);
 @import "tailwindcss/utilities" layer(utilities);
 @import "./blog.css" layer(components);
-@import "./supplemental.css" layer(components);
