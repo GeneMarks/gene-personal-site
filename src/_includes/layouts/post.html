@@ -6,7 +6,9 @@ layout: layouts/default.html
     <h1 class="px-2 text-heading bg-postheaderbg text-postheadertext font-bold">{{ title }}</h1>
     <div class="mt-2 text-sub italic">{{ page.date | formatPostDate }}</div>
 </div>
+
 <div class="blogpost">
     {{ content | safe }}
-    <div class="text-sub italic">Modified {{ modified | formatDetailedDateTime }}</div>
 </div>
+
+<div class="text-sub italic">Modified {{ modified | formatDetailedDateTime }}</div>
