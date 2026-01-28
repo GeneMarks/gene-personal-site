@@ -7,23 +7,8 @@ export const config = {
 export default function(config) {
     //Collections
     config.addCollection("sortedProjects", (collectionsApi) => {
-        return collectionsApi.getFilteredByTag("projects").sort((a, b) => {
-            const statusSortMap = {
-                "active": 1,
-                "maintenance": 2,
-                "refactoring": 3,
-                "archived": 4
-            };
-
-            // First sort by status
-            const statusDiff = statusSortMap[a.data.status] - statusSortMap[b.data.status];
-            if (statusDiff !== 0) return statusDiff;
-
-            // Then sort alphabetically by title
-            const titleA = a.data.title.toLowerCase();
-            const titleB = b.data.title.toLowerCase();
-            return titleA.localeCompare(titleB);
-        });
+        return collectionsApi.getFilteredByTag("projects").sort((a, b) =>
+            a.data.priority - b.data.priority);
     });
 
     // Directories
