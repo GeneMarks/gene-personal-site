@@ -1,3 +1,5 @@
+{% set projects = collections.sortedProjects %}
+
 <!doctype html>
 <html lang="en">
     <head>
@@ -5,13 +7,36 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="{{ '/assets/css/tailwind.css' | url }}">
         <link rel="icon" href="{{ '/favicon.jpg' | url }}" type="image/jpeg">
-        <link rel="preload" href="/assets/fonts/noto-serif-v30-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
-        <link rel="preload" href="/assets/fonts/noto-sans-v39-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
-        <title>{{ title or "Gene Marks" }}</title>
+        <link rel="preload" href="/assets/fonts/CascadiaCode-2407.24.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="/assets/fonts/CascadiaCodeItalic-2407.24.woff2" as="font" type="font/woff2" crossorigin>
+        <title>{{ title or "genemarks.net" }}</title>
     </head>
-    <body class="flex justify-center bg-background text-secondary font-serif">
-        <div class="w-full max-w-6xl">
-            {{ content | safe }}
-        </div>
+
+    <body class="bg-footerbg text-primarytext text-normal font-primary">
+        {% include "partials/header.html" %}
+
+        <main class="flex flex-col items-center pb-20 pt-8 px-6 bg-bodybg xl:pb-50 xl:flex-row xl:items-baseline">
+            <div class="flex-1 hidden xl:block"></div>
+
+            <div class="w-full max-w-4xl">
+                {{ content | safe }}
+            </div>
+
+            <ul class="flex-1 mt-8 xl:min-w-[360px] xl:-mt-18 xl:ml-4">
+                {%- for project in projects -%}
+
+                {% set p = project.data %}
+                {% set first_item = projects | first == project %}
+                {% set priority = p.priority == 0 %}
+
+                <li class="{{ "mt-2" if not first_item }} flex flex-row items-center gap-2">
+                    <img src="/assets/images/projects/{{ p.img }}" class="w-full max-w-[75px] xl:max-w-full xl:w-[100px]" alt="{{ p.desc }}">
+                    <a target="_blank" class="{{ "xl:mt-5" if first_item }} text-header italic font-bold text-nowrap hover:underline" href="{{ p.link }}">{{ p.title }}{{ "!" if priority }}</a>
+                </li>
+                {%- endfor -%}
+            </ul>
+        </main>
+
+        {% include "partials/footer.html" %}
     </body>
 </html>
