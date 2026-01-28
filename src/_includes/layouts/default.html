@@ -1,5 +1,3 @@
-{% set projects = collections.sortedProjects %}
-
 <!doctype html>
 <html lang="en">
     <head>
@@ -21,6 +19,8 @@
             <div class="w-full max-w-4xl">
                 {{ content | safe }}
             </div>
+
+            {% set projects = collections.sortedProjects %}
 
             <ul class="flex-1 mt-8 xl:min-w-[360px] xl:-mt-18 xl:ml-4">
                 {%- for project in projects -%}
