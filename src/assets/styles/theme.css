@@ -1,13 +1,38 @@
 @theme {
     /* Fonts */
-    --font-serif: "Noto Serif", Cambria, Georgia, "New York", serif;
-    --font-sans: "Noto Sans", "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    --font-primary: "Cascadia Code", serif;
+
+    /* Text sizes */
+    --text-normal:  clamp(1.15rem, 1.093rem + 0.229vw, 1.35rem);
+    --text-heading: clamp(1.35rem, 1.307rem + 0.171vw, 1.5rem);
+    --text-sub:     clamp(1.05rem, 0.993rem + 0.229vw, 1.25rem);
 
     /* Colors */
-    --color-primary: #ffffff;
-    --color-secondary: #000000;
-    --color-background: #e8e4dd;
-    --color-background-alt: #c1ba81;
-    --color-background-alt-accent: #d0ccc5;
-    --color-accent: #4d592a;
+    --color-headertext:         #ffffff;
+    --color-headertexthover:    #ffff00;
+    --color-headerbg:           #000081;
+    --color-headerborder:       #ffffff;
+
+    --color-bodybg:             #c0c0c0;
+
+    --color-primarytext:        #000000;
+    --color-primarylink:        #000081;
+    --color-primarylinkhover:   #ffffff;
+    --color-primarylinkhoverbg: #000081;
+
+    --color-footertext:         #3d3d3d;
+    --color-footerlink:         #3d3d3d;
+    --color-footerlinkhover:    #c2c2c2;
+    --color-footerlinkhoverbg:  #545454;
+    --color-footerbg:           #ababab;
+
+    --color-postheadertext:     #000000;
+    --color-postheaderbg:       #ababab;
+    --color-postsubheadertext:  #ffffff;
+    --color-postsubheaderbg:    #000081;
+    --color-postcodetext:       #000000;
+    --color-postcodebg:         #ababab;
+    --color-postcodeborder:     #000000;
+    --color-postcodesniptext:   #3d3d3d;
+    --color-postcodesnipbg:     #ababab;
 }
