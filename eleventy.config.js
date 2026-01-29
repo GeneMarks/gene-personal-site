@@ -47,10 +47,7 @@ export default function(config) {
     config.addGlobalData("build", new Date());
 
     // Passthroughs
-    config.addPassthroughCopy("src/assets/fonts/**/*");
-    config.addPassthroughCopy("src/assets/images/**/*");
-    config.addPassthroughCopy("src/assets/js/**/*");
-    config.addPassthroughCopy("src/assets/blog/**/*");
+    config.addPassthroughCopy("src/assets/**/*");
     config.addPassthroughCopy("src/public_key.asc");
     config.addPassthroughCopy("src/favicon.jpg");
 
