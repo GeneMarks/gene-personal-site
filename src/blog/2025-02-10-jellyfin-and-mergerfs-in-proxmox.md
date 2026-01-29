@@ -36,7 +36,7 @@ Here's the line in my fstab that accomplishes that:
 
 This entry supplies read-only access to the uid that root container users are mapped to on the host, as well as a gid that you can add additional users to. If storing your smb credentials in a seperate file like I do, **make sure** you set its permissions to 600 and ensure root is the owner!
 
-Next, you'll need to give the unprivileged Jellyfin container access to the mount by adding the following line to its<br>`/etc/pve/lxc/{lxc_id}.conf` file:
+Next, you'll need to give the unprivileged Jellyfin container access to the mount by adding the following line to its `/etc/pve/lxc/{lxc_id}.conf` file:
 
 `mp0: /mnt/lxc_shares/media/,mp=/mnt/media`
 
