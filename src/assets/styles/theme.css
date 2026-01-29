@@ -7,6 +7,7 @@
     --text-normal:  clamp(1.15rem, 1.093rem + 0.229vw, 1.35rem);
     --text-heading: clamp(1.35rem, 1.307rem + 0.171vw, 1.5rem);
     --text-sub:     clamp(1.05rem, 0.993rem + 0.229vw, 1.25rem);
+    --text-code:    clamp(1.10rem, 1.057rem + 0.171vw, 1.25rem);
 
     /* Colors */
     --color-headertext:         #ffffff;
