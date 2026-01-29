@@ -15,7 +15,7 @@
 .blogpost pre>code { @apply p-0 bg-transparent text-postcodetext; }
 .blogpost code { @apply py-1 px-2 bg-postcodesnipbg text-postcodesniptext; }
 
-.blogpost blockquote { @apply p-4 border-l-4; }
+.blogpost blockquote { @apply p-4 border-l-4 border-postquoteborder; }
 .blogpost blockquote cite { @apply block mt-2 w-fit before:content-['—'] before:mr-2; }
 .blogpost blockquote cite>a { @apply text-primarylink hover:bg-primarylinkhoverbg hover:text-primarylinkhover; }
 
