@@ -1,4 +1,4 @@
-.blogpost>* { @apply mb-6 wrap-break-word; }
+.blogpost>* { @apply mb-8 wrap-break-word; }
 
 .blogpost a { @apply underline text-primarylink hover:text-primarylinkhover hover:bg-primarylinkhoverbg; }
 
