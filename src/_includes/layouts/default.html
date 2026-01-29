@@ -33,7 +33,7 @@
 
                 <li class="{{ "mt-2" if not first_item }} flex flex-row items-center gap-2">
                     <img src="/assets/images/projects/{{ p.img }}" class="w-full max-w-[75px] xl:max-w-full xl:w-[100px]" alt="{{ p.desc }}">
-                    <a target="_blank" class="{{ "xl:mt-5" if first_item }} text-header italic font-bold text-nowrap hover:underline" href="{{ p.link }}">{{ p.title }}{{ "!" if priority }}</a>
+                    <a target="_blank" class="{{ "xl:mt-5" if first_item }} font-secondary text-header italic font-bold text-nowrap hover:underline" href="{{ p.link }}">{{ p.title }}{{ "!" if priority }}</a>
                 </li>
                 {%- endfor -%}
             </ul>

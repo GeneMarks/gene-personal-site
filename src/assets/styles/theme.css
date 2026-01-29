@@ -1,6 +1,7 @@
 @theme {
     /* Fonts */
-    --font-primary: "Cascadia Code", serif;
+    --font-primary: "Source Sans 3", sans-serif;
+    --font-secondary: "Cascadia Code", sans-serif;
 
     /* Text sizes */
     --text-normal:  clamp(1.15rem, 1.093rem + 0.229vw, 1.35rem);
@@ -26,8 +27,11 @@
     --color-footerlinkhoverbg:  #545454;
     --color-footerbg:           #ababab;
 
+    --color-posttext:           #2d2d2d;
     --color-postheadertext:     #000000;
     --color-postheaderbg:       #ababab;
+    --color-postdatetext:       #000000;
+    --color-postdatebg:         #b9b9b9;
     --color-postsubheadertext:  #ffffff;
     --color-postsubheaderbg:    #000081;
     --color-postquoteborder:    #000000;

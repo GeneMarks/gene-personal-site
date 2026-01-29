@@ -4,7 +4,7 @@ layout: layouts/default.html
 
 {% set posts = collections.post | reverse %}
 
-<ul>
+<ul class="font-secondary">
     {%- for post in posts -%}
 
     {% set first_item = posts | first == post %}
