@@ -43,4 +43,9 @@
     --color-postcodeborder:     #000000;
     --color-postcodesniptext:   #3d3d3d;
     --color-postcodesnipbg:     #ababab;
+
+    --color-404headertext:      #ffffff;
+    --color-404headerbg:        #aa0000;
+    --color-404text:            #000000;
+    --color-404bg:              #b9b9b9;
 }
