@@ -18,14 +18,14 @@ More specifically, the media itself, located on a NAS, is mounted as a read-only
 ## Why merge these directories?
 While I've always preferred the concept of keeping metadata next to my media files, two deal breakers have kept me from actually doing it.
 
-1. **Security** - The media share accessed by Jellyfin must be read-only. Put simply, I don't want the container to have any means to delete or alter my collection. Of course, this means Jellyfin wouldn't be able to create or modify metadata next to the media.
-2. **Performance** - Even if I work around the security issue, serving metadata alongside the media on my 'ol mechanical HDDs would be... clunky.
+1. **Security**: The media share accessed by Jellyfin must be read-only. I don't want the container to have any means to delete or alter my data. Of course, this means Jellyfin wouldn't be able to create or modify metadata next to the media.
+2. **Performance**: Even if I work around the security issue, serving metadata alongside the media on my 'ol mechanical HDDs could be a bit... clunky.
 
 Using mergerfs gives us a solution that is...
-- **Secure** - The ability to delete media files through the container is disabled while still allowing metadata manipulation.
-- **Speedy** - Artwork and other metadata will be served to clients much quicker on the local NVME than if they were located on the NAS.
-- **Organized** - The *meta* folder structure mimics what we're used to putting media in.
-- **Flexible** - Kodi, Plex, Jellyfin, and Emby should all recognize your collection properly via the merged mount.
+- **Secure**: Messing with media files through the container is impossible while still allowing metadata manipulation.
+- **Speedy**: Artwork and other metadata will be served to clients much quicker on the local NVME than if they were located on the NAS.
+- **Organized**: The *meta* folder structure mimics what we're used to putting media in.
+- **Flexible**: Kodi, Plex, Jellyfin, and Emby should all recognize your collection properly via the merged mount.
 
 ## The Setup
 The first peice in this equation is making sure your media share is available in the LXC. The simplest way to achieve this is by first mounting it on the Proxmox host itself.
@@ -40,11 +40,11 @@ Next, you'll need to give the unprivileged Jellyfin container access to the moun
 
 `mp0: /mnt/lxc_shares/media/,mp=/mnt/media`
 
-After a full reboot, you should see a readable /mnt/media share on the Jellyfin container.
+After a reboot, you should see a readable /mnt/media share on the Jellyfin container.
 
 *Now comes the fun part.*
 
-Before installing mergerfs, we need to understand the filesystem structure of the folders involved in the merge. Here is a sample of my media mount:
+Before installing mergerfs, we need to understand the layout of the directories involved in the merge. Here is a sample of my media mount:
 
 ```
 /mnt/media/
@@ -68,7 +68,7 @@ and another matching sample of the meta folder:
 │  │  ├─ logo.png
 ```
 
-As you can see, the path structure is mirrored yet different files are served.
+As you can see, the paths are mirrored yet different files are served.
 
 After installing mergerfs with your container's package manager, you'll want to add an entry to your fstab that looks like mine:
 
@@ -86,6 +86,6 @@ That's pretty much all there is to it! Restart, boot up Jellyfin and use the `me
 
 
 ## Caveats
-mergerfs is [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace) based. It's widely acknowledged that user-space filesystem implementations struggle to match the speed of traditional kernel-space due to all of the context switches and sys calls in the chain of operations. *Could* this setup be more efficient? In theory.
+mergerfs is [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace) based. It's acknowledged that user-space filesystem implementations can struggle to match the speed of traditional kernel-space due to all of the context switches and sys calls in the chain of operations. *Could* this setup be more efficient? In theory.
 
-But to put it bluntly, I don't find the idea of making a container privileged *just* to chase numerical performance gains all that worthy of consideration.
+But to put it bluntly, I don't find the idea of making a container privileged *just* to chase numerical performance gains all that necessary.
