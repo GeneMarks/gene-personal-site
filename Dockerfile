@@ -15,16 +15,13 @@ RUN npm run build
 
 FROM joseluisq/static-web-server:2-debian AS runtime
 
-RUN addgroup --system app && adduser --system --ingroup app app
-
 WORKDIR /www
 
 COPY sws.toml /etc/sws.toml
 COPY --from=build /app/dist /www
-RUN chown -R app:app /www
+RUN chown -R sws:sws /www
 
-USER app
-
+USER sws
 EXPOSE 8080
 
 CMD ["static-web-server", "--config-file", "/etc/sws.toml"]
