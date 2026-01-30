@@ -18,13 +18,13 @@
         <main class="flex flex-col items-center pb-20 pt-8 px-6 bg-bodybg xl:pb-50 xl:flex-row xl:items-baseline">
             <div class="flex-1 hidden xl:block"></div>
 
-            <div class="w-full lg:max-w-body">
+            <div class="w-full lg:mx-4 lg:max-w-body">
                 {{ content | safe }}
             </div>
 
             {% set projects = collections.sortedProjects %}
 
-            <ul class="flex-1 mt-10 w-full lg:max-w-body xl:max-w-full xl:min-w-[320px] xl:-mt-18 xl:ml-4">
+            <ul class="flex-1 mt-10 w-full lg:max-w-body xl:max-w-full xl:min-w-[320px] xl:-mt-18">
                 {%- for project in projects -%}
 
                 {% set p = project.data %}
