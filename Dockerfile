@@ -19,7 +19,6 @@ WORKDIR /www
 
 COPY sws.toml /etc/sws.toml
 COPY --from=build /app/dist /www
-RUN chown -R sws:sws /www
 
 USER sws
 EXPOSE 8080
