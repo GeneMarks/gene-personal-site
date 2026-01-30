@@ -9,6 +9,9 @@
     --text-sub:     clamp(1.05rem, 0.993rem + 0.229vw, 1.25rem);
     --text-code:    clamp(1.10rem, 1.057rem + 0.171vw, 1.25rem);
 
+    /* Spacing */
+    --spacing-body: clamp(52rem, 42.154rem + 12.308vw, 56rem);
+
     /* Colors */
     --color-headertext:         #ffffff;
     --color-headertexthover:    #ffff00;
