@@ -3,7 +3,7 @@
 host = "::"
 port = 8080
 root = "/www"
-page404 = "./404.html"
+page404 = "./404/index.html"
 
 
 [advanced]
