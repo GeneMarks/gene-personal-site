@@ -1,7 +1,7 @@
 @theme {
     /* Fonts */
     --font-primary: "Source Sans 3", sans-serif;
-    --font-secondary: "Cascadia Code", sans-serif;
+    --font-secondary: "Cascadia Mono", sans-serif;
 
     /* Text sizes */
     --text-normal:  clamp(1.15rem, 1.093rem + 0.229vw, 1.35rem);

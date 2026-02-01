@@ -15,19 +15,19 @@
     src: url("/assets/fonts/source_sans_3-5.2.9-latin-wght-italic.woff2") format("woff2");
 }
 
-/* Cascadia Code */
+/* Cascadia Mono */
 @font-face {
-    font-family: "Cascadia Code";
+    font-family: "Cascadia Mono";
     font-style: normal;
     font-weight: 200 700;
     font-display: swap;
-    src: url("/assets/fonts/cascadia_code-2407.24.woff2") format("woff2");
+    src: url("/assets/fonts/cascadia_mono-2407.24.woff2") format("woff2");
 }
 
 @font-face {
-    font-family: "Cascadia Code";
+    font-family: "Cascadia Mono";
     font-style: italic;
     font-weight: 200 700;
     font-display: swap;
-    src: url("/assets/fonts/cascadia_code-2407.24-italic.woff2") format("woff2");
+    src: url("/assets/fonts/cascadia_mono-2407.24-italic.woff2") format("woff2");
 }
