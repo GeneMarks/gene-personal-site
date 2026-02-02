@@ -1,5 +1,3 @@
-# Build stage
-
 FROM node:25-trixie AS build
 
 WORKDIR /app
@@ -10,8 +8,6 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
-
-# Runtime stage
 
 FROM joseluisq/static-web-server:2-debian AS runtime
 
