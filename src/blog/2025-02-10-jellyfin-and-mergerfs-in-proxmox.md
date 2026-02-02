@@ -84,7 +84,6 @@ After=local-fs.target
 
 That's pretty much all there is to it! Restart, boot up Jellyfin and use the `media` folder as the source for your libraries. Oh, and enable the library settings that save .nfo's and artwork next to media.
 
-
 ## Caveats
 mergerfs is [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace) based. It's acknowledged that user-space filesystem implementations can struggle to match the speed of traditional kernel-space due to all of the context switches and sys calls in the chain of operations. *Could* this setup be more efficient? In theory.
 
