@@ -35,7 +35,7 @@ var win32Ex = new Win32Exception(errorCode);
 
 With that being said, let's move on to the main course... How can we start a process *in* our newly created job object?
 
-## The gotcha of the Process class
+## The gotchas of the Process class
 Looking at Microsoft's [documentation](https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics.process?view=net-10.0) for .NET's `Process` class, we see many useful members. We can use a `StartInfo` object to set characteristics of the process before starting it. We can even access the underlying OS handle with `Process.Handle`.
 
 What we *can't* do is manipulate the process's native attribute list.
