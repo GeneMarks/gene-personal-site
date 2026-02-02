@@ -1,5 +1,3 @@
-import footnote_plugin from "markdown-it-footnote";
-
 export const config = {
       htmlTemplateEngine: "njk",
 };
@@ -52,7 +50,6 @@ export default function(config) {
     config.addPassthroughCopy("src/favicon.jpg");
 
     // Plugins
-    config.amendLibrary("md", (mdLib) => mdLib.use(footnote_plugin));
 
     // Shortcodes
     config.addShortcode("year", () => `${new Date().getFullYear()}`);
