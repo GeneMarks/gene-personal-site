@@ -1,7 +1,5 @@
 {
     "name": "gene-personal-site",
-    "version": "1.0.0",
-    "main": "index.js",
     "scripts": {
         "dev": "npm-run-all -p dev:*",
         "build": "npm-run-all -p build:*",
@@ -10,10 +8,6 @@
         "build:11ty": "eleventy",
         "build:css": "tailwindcss-cli -i ./src/_tailwind/tailwind.css -o ./dist/assets/css/main.css --postcss"
     },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "description": "",
     "type": "module",
     "dependencies": {
         "@11ty/eleventy": "^3.1.2"
