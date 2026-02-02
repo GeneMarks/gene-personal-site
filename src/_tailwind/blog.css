@@ -5,6 +5,7 @@
 .blogpost img { @apply inline-block my-4; }
 
 .blogpost>h2, .blogpost>h3 { @apply font-secondary font-bold underline mt-12 mb-6 px-2; }
+.blogpost>h2:first-child, .blogpost>h3:first-child { @apply mt-0; }
 .blogpost>h2 { @apply text-postsubheadertext bg-postsubheaderbg; }
 .blogpost>h3 { @apply text-postsubheader2text bg-postsubheader2bg; }
 
