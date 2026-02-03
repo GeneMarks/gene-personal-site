@@ -47,7 +47,7 @@ using var process = new Process();
 process.StartInfo.FileName = "notepad.exe";
 
 process.Start();
-// Race condition here
+// Race condition here // [!code highlight]
 PInvoke.AssignProcessToJobObject(jobHandle, process.Handle);
 ```
 
