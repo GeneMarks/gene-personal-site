@@ -76,7 +76,7 @@ After installing mergerfs with your container's package manager, you'll want to 
 
 If you're using Docker, you should also add the following to its service file with `systemctl edit docker` to ensure it only starts after our media mount is accessible:
 
-```
+```ini
 [Unit]
 RequiresMountsFor=/srv/docker-data/jellyfin/media
 After=local-fs.target
