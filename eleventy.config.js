@@ -1,4 +1,4 @@
-import shikiPlugin from "./src/_plugins/shikiPlugin.js";
+import shikiPlugin from "./plugins/shikiPlugin.js";
 
 export const config = {
       htmlTemplateEngine: "njk",
