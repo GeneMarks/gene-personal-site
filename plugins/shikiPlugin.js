@@ -1,4 +1,7 @@
 import { createHighlighter } from "shiki";
+import { transformerNotationDiff,
+         transformerNotationHighlight,
+         transformerRenderIndentGuides } from "@shikijs/transformers";
 
 export default async function (config, options) {
     const highlighter = await createHighlighter(options);
@@ -9,6 +12,11 @@ export default async function (config, options) {
                 return highlighter.codeToHtml(code, {
                     lang: language,
                     theme: options.theme,
+                    transformers: [
+                        transformerNotationDiff(),
+                        transformerNotationHighlight(),
+                        transformerRenderIndentGuides(),
+                    ],
                 });
             },
         });

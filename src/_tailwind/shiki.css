@@ -1,9 +1,20 @@
-.shiki {
+pre.shiki code { @apply flex flex-col; }
+pre.shiki .line { @apply px-4 leading-[1.35]; }
+
+pre.shiki {
     counter-reset: step;
     counter-increment: step 0;
 }
 
-.shiki .line:not(:last-child)::before {
+pre.shiki .line:not(:last-child)::before {
     counter-increment: step;
     @apply inline-block mr-6 w-6.25 text-right opacity-40 content-[counter(step)];
 }
+
+pre.shiki .highlighted { @apply bg-[#1a1a20]; }
+pre.shiki .line:not(.highlighted):hover { @apply bg-[#121217]; }
+
+/* pre.shiki .indent:nth-child(even) { @apply invisible; } */
+pre.shiki .indent { @apply inline-block relative left-(--indent-offset); }
+pre.shiki .indent:empty { @apply h-lh align-bottom }
+pre.shiki .indent::before { @apply absolute w-px h-full opacity-[0.10] bg-current content-[''] }
