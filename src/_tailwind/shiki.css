@@ -1,0 +1,9 @@
+.shiki {
+    counter-reset: step;
+    counter-increment: step 0;
+}
+
+.shiki .line:not(:last-child)::before {
+    counter-increment: step;
+    @apply inline-block mr-6 w-6.25 text-right opacity-40 content-[counter(step)];
+}

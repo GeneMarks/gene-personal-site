@@ -4,3 +4,4 @@
 @import "tailwindcss/preflight" layer(base);
 @import "tailwindcss/utilities" layer(utilities);
 @import "./blog.css" layer(components);
+@import "./shiki.css" layer(components);

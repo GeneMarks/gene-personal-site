@@ -1,3 +1,5 @@
+import shikiPlugin from "./src/_plugins/shikiPlugin.js";
+
 export const config = {
       htmlTemplateEngine: "njk",
 };
@@ -50,6 +52,11 @@ export default function(config) {
     config.addPassthroughCopy("src/favicon.jpg");
 
     // Plugins
+    config.addPlugin(shikiPlugin, {
+        theme: "github-dark-high-contrast",
+        themes: ["github-dark-high-contrast"],
+        langs: ["asm", "bat", "c", "cmake", "cpp", "csharp", "css", "diff", "docker", "fsharp", "go", "html", "http", "ini", "java", "javascript", "json", "jsonc", "log", "lua", "make", "markdown", "nginx", "php", "powershell", "python", "regexp", "rust", "shellscript", "sql", "ssh-config", "toml", "typescript", "xml", "yaml"],
+    });
 
     // Shortcodes
     config.addShortcode("year", () => `${new Date().getFullYear()}`);
