@@ -13,7 +13,7 @@ CreateJobObject
 
 And with this method, it becomes very simple to create job objects:
 
-```
+```cs
 public static SafeFileHandle CreateJobHandle()
 {
     var safeJobHandle = PInvoke.CreateJobObject(null, null);
@@ -28,7 +28,7 @@ public static SafeFileHandle CreateJobHandle()
 ### As an aside
 You'll notice I won't take up space writing any error handling in this article. As a general WinAPI rule, when a system function fails, it will usually return `0`. To obtain the error code and create an exception, you can do something like:
 
-```
+```cs
 var errorCode = Marshal.GetLastPInvokeError();
 var win32Ex = new Win32Exception(errorCode);
 ```
@@ -42,7 +42,7 @@ What we *can't* do is manipulate the process's native attribute list.
 
 You may be thinking - "Can't you just start the process, obtain its handle, and use it to add the process to the job object?" You can, and it might look something like:
 
-```
+```cs
 using var process = new Process();
 process.StartInfo.FileName = "notepad.exe";
 
@@ -78,7 +78,7 @@ STARTUPINFOEXW
 
 First, I'll design a minimal wrapper class for the process itself:
 
-```
+```cs
 public sealed class Process : IDisposable
 {
     private SafeFileHandle? _safeProcHandle;
@@ -102,7 +102,7 @@ The method for actually starting our process in a given job object will end up q
 
 Determining the size of the memory needed to store our process's attribute list is the first step:
 
-```
+```cs
 public unsafe void StartInJob(SafeFileHandle safeJobHandle)
 {
     nuint size;
@@ -118,7 +118,7 @@ The initial call to `InitializeProcThreadAttributeList` is expected to fail. Bec
 
 Next, we'll call the function again to initialize the list and then update the job list attribute with the handle to our job object:
 
-```
+```cs
 try
 {
     if (!PInvoke.InitializeProcThreadAttributeList(list, 1, 0, &size))
@@ -134,7 +134,7 @@ try
 
 The process's startup info and path should now be prepared:
 
-```
+```cs
 STARTUPINFOEXW siex = new()
 {
     lpAttributeList = list
@@ -151,7 +151,7 @@ Additionally, as per the [Microsoft docs](https://learn.microsoft.com/en-us/wind
 
 We can now finally create the process:
 
-```
+```cs
 PROCESS_INFORMATION pi;
 
 if (!PInvoke.CreateProcess(
@@ -165,7 +165,7 @@ Note that [another requirement](https://learn.microsoft.com/en-us/windows/win32/
 
 In the above code block, I've declared `pi` explicitly for clarity. We're now going to use it to obtain a handle to the newly created process. Afterward, we'll write some final necessary cleanup.
 
-```
+```cs
     _safeProcHandle = new SafeFileHandle(pi.hProcess, ownsHandle: true);
 
     // Not using this. Handle must be closed.
@@ -187,7 +187,7 @@ Lastly, it's vital not to forget the attribute list and the unmanaged memory we 
 ## The complete package
 It took a while, but we've now constructed a custom solution that can start a system process in a given job object. Putting the whole thing together, it looks like this:
 
-```
+```cs
 public sealed class Process : IDisposable
 {
     private SafeFileHandle? _safeProcHandle;
