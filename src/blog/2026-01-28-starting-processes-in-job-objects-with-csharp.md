@@ -76,14 +76,13 @@ STARTUPINFOW
 STARTUPINFOEXW
 ```
 
-First, I'll design a minimal wrapper class for the process itself:
+First, I'll design a minimal wrapper class to store the process's path and handle:
 
 ```cs
 public sealed class Process : IDisposable
 {
-    private SafeFileHandle? _safeProcHandle;
-
     public string Path { get; }
+    public SafeFileHandle? SafeHandle { get; private set; }
 
     public Process(string path)
     {
@@ -92,15 +91,15 @@ public sealed class Process : IDisposable
 
     public void Dispose()
     {
-        _safeProcHandle?.Dispose();
-        _safeProcHandle = null;
+        SafeHandle?.Dispose();
+        SafeHandle = null;
     }
 }
 ```
 
-The method for actually starting our process in a given job object will end up quite hefty, so I'll break it into chunks.
+This class will also contain the method for actually creating the system process in a given job object. It will end up quite hefty, so I'll break it up into chunks.
 
-Determining the size of the memory needed to store our process's attribute list is the first step:
+The first step is determining the size of the memory needed to store our process's attribute list:
 
 ```cs
 public unsafe void StartInJob(SafeFileHandle safeJobHandle)
@@ -114,9 +113,9 @@ public unsafe void StartInJob(SafeFileHandle safeJobHandle)
     var list = (LPROC_THREAD_ATTRIBUTE_LIST)listBuffer;
 ```
 
-The initial call to `InitializeProcThreadAttributeList` is expected to fail. Because we passed a null value as the first argument, along with the required number (1) of attributes our list will contain, Windows populated `size` with the required buffer size. We then allocated the necessary buffer size as unmanaged memory and treated it as an attribute list.
+This initial call to `InitializeProcThreadAttributeList` is expected to fail. Because we passed a null value as the first argument, along with the required number (1) of attributes our list will contain, Windows populated `size` with the required buffer size. We then allocated the necessary buffer size as unmanaged memory and treated it as an attribute list.
 
-Next, we'll call the function again to initialize the list and then update the job list attribute with the handle to our job object:
+Next, we'll call the function again to initialize the list. Afterward, we can update the necessary attribute in the list with the handle to our job object:
 
 ```cs
 try
@@ -132,7 +131,7 @@ try
         // Error handling
 ```
 
-The process's startup info and path should now be prepared:
+Now that the attribute list is prepared, we can use it to initialize the process's startup info. We should also ensure that our process's path is the appropriate structure.
 
 ```cs
 STARTUPINFOEXW siex = new()
@@ -149,7 +148,7 @@ Because `PROC_THREAD_ATTRIBUTE_JOB_LIST` is an extended attribute, we needed to 
 
 Additionally, as per the [Microsoft docs](https://learn.microsoft.com/en-us/windows/win32/api/winbase/ns-winbase-startupinfoexa#remarks), the `cb` member of `STARTUPINFOEX.StartupInfo` *must* be assigned the size of its wrapping structure when using an extended startup info structure.
 
-We can now finally create the process:
+At this point, we can finally create the process:
 
 ```cs
 PROCESS_INFORMATION pi;
@@ -166,7 +165,7 @@ Note that [another requirement](https://learn.microsoft.com/en-us/windows/win32/
 In the above code block, I've declared `pi` explicitly for clarity. We're now going to use it to obtain a handle to the newly created process. Afterward, we'll write some final necessary cleanup.
 
 ```cs
-    _safeProcHandle = new SafeFileHandle(pi.hProcess, ownsHandle: true);
+    SafeHandle = new SafeFileHandle(pi.hProcess, ownsHandle: true);
 
     // Not using this. Handle must be closed.
     _ = PInvoke.CloseHandle(pi.hThread);
@@ -178,21 +177,20 @@ finally
 }
 ```
 
-By passing `true` to the `ownsHandle` parameter, we relinquished ownership of the process handle and responsibility of its lifetime. At this point, our custom `Process` object will finally own a safe handle to the system process. When `Dispose()` is called on `_safeProcHandle`, .NET will take care of closing the system handle for us.
+By passing `true` to the `ownsHandle` parameter, we relinquished ownership of the process handle and responsibility of its lifetime. At this point, our custom `Process` object will finally own a safe handle to the system process. When `Dispose()` is called on `SafeHandle`, .NET will take care of closing the system handle for us.
 
 `hThread`, however, is a handle we have no plans of using. Technically, [it will be closed](https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/ns-processthreadsapi-process_information#remarks) by the system when its parent process terminates. Though it is still more responsible to expressly call the `CloseHandle` function, as seen above.
 
-Lastly, it's vital not to forget the attribute list and the unmanaged memory we allocated for it earlier.
+Lastly, it's vital not to forget about the attribute list and the unmanaged memory we allocated for it earlier.
 
 ## The complete package
-It took a while, but we've now constructed a custom solution that can start a system process in a given job object. Putting the whole thing together, it looks like this:
+It took awhile, but we've now constructed a custom solution that can start a system process in a given job object. Putting the whole thing together, it looks like this:
 
 ```cs
 public sealed class Process : IDisposable
 {
-    private SafeFileHandle? _safeProcHandle;
-
     public string Path { get; }
+    public SafeFileHandle? SafeHandle { get; private set; }
 
     public Process(string path)
     {
@@ -238,7 +236,7 @@ public sealed class Process : IDisposable
                 null, null, in siex.StartupInfo, out pi))
                 // Error handling
 
-            _safeProcHandle = new SafeFileHandle(pi.hProcess, ownsHandle: true);
+            SafeHandle = new SafeFileHandle(pi.hProcess, ownsHandle: true);
 
             // Not using this. Handle must be closed.
             _ = PInvoke.CloseHandle(pi.hThread);
@@ -252,8 +250,8 @@ public sealed class Process : IDisposable
 
     public void Dispose()
     {
-        _safeProcHandle?.Dispose();
-        _safeProcHandle = null;
+        SafeHandle?.Dispose();
+        SafeHandle = null;
     }
 }
 ```
