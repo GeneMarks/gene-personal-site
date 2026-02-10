@@ -14,7 +14,6 @@
 .blogpost ul { @apply list-(--list-marker); }
 .blogpost ol { @apply list-decimal; }
 .blogpost li { @apply not-first:mt-4; }
-.blogpost li::marker { @apply font-secondary; }
 
 .blogpost pre { @apply grid overflow-auto py-4 leading-tight border-4 border-postcodeborder; }
 .blogpost pre>code { @apply p-0 bg-transparent text-postcodetext; }
