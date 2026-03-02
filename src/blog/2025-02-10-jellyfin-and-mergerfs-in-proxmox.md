@@ -32,13 +32,17 @@ The first peice in this equation is making sure your media share is available in
 
 Here's the line in my fstab that accomplishes that:
 
-`//nas/Media /mnt/lxc_shares/media cifs vers=3.0,_netdev,x-systemd.automount,noatime,uid=100000,gid=110000,dir_mode=0770,file_mode=0770,credentials=/etc/.smb-cred-media,ro,defaults 0 0`
+```txt
+//nas/Media /mnt/lxc_shares/media cifs vers=3.0,_netdev,x-systemd.automount,noatime,uid=100000,gid=110000,dir_mode=0770,file_mode=0770,credentials=/etc/.smb-cred-media,ro,defaults 0 0
+```
 
 This entry supplies read-only access to the uid that root container users are mapped to on the host, as well as a gid that you can add additional users to. If storing your smb credentials in a seperate file like I do, **make sure** you set its permissions to 600 and ensure root is the owner!
 
 Next, you'll need to give the unprivileged Jellyfin container access to the mount by adding the following line to its `/etc/pve/lxc/{lxc_id}.conf` file:
 
-`mp0: /mnt/lxc_shares/media/,mp=/mnt/media`
+```txt
+mp0: /mnt/lxc_shares/media/,mp=/mnt/media
+```
 
 After a reboot, you should see a readable /mnt/media share on the Jellyfin container.
 
@@ -46,7 +50,7 @@ After a reboot, you should see a readable /mnt/media share on the Jellyfin conta
 
 Before installing mergerfs, we need to understand the layout of the directories involved in the merge. Here is a sample of my media mount:
 
-```
+```txt
 /mnt/media/
 ├─ Movies/
 │  ├─ A Goofy Movie (1995) [imdbid-tt0113198]/
@@ -56,7 +60,7 @@ Before installing mergerfs, we need to understand the layout of the directories 
 
 and another matching sample of the meta folder:
 
-```
+```txt
 /srv/docker-data/jellyfin/meta/
 ├─ Movies/
 │  ├─ A Goofy Movie (1995) [imdbid-tt0113198]/
@@ -72,7 +76,9 @@ As you can see, the paths are mirrored yet different files are served.
 
 After installing mergerfs with your container's package manager, you'll want to add an entry to your fstab that looks like mine:
 
-`/srv/docker-data/jellyfin/meta:/mnt/media /srv/docker-data/jellyfin/media fuse.mergerfs defaults,allow_other,use_ino,category.create=epmfs 0 0`
+```txt
+/srv/docker-data/jellyfin/meta:/mnt/media /srv/docker-data/jellyfin/media fuse.mergerfs defaults,allow_other,use_ino,category.create=epmfs 0 0
+```
 
 If you're using Docker, you should also add the following to its service file with `systemctl edit docker` to ensure it only starts after our media mount is accessible:
 
