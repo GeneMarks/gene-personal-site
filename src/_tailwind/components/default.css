@@ -10,8 +10,7 @@ li { @apply not-first:mt-half; }
 
 h1, h2, h3, h4, h5 { @apply leading-8 font-semibold; }
 h2, h3, h4, h5 { @apply mt-double; }
-main>h2:first-child, main>h3:first-child, main>h4:first-child,
-article>h2:first-child, article>h3:first-child, article>h4:first-child { @apply mt-default; }
+main>h2:first-child, article>h2:first-child, article>h3:nth-child(3) { @apply mt-default; }
 h1 { @apply text-step-4; }
 h2 { @apply text-step-3; }
 h3, h4, h5 { @apply text-step-2; }
