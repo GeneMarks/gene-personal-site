@@ -3,5 +3,6 @@ export default {
     siteName: "Gene's blog",
     siteDesc: "Anything that comes to mind",
     authorName: "Gene Marks",
-    authorEmail: "genemarks74@gmail.com",
+    authorEmail: "mail@genemarks.net",
+    sourceUrl: "https://github.com/GeneMarks/blog.genemarks.net",
 }
