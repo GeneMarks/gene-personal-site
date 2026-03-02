@@ -3,18 +3,18 @@ img { @apply inline-block my-double; }
 main a, footer a { @apply text-accent dark:text-accent-dark underline; }
 main p { @apply my-default; }
 
-ul, ol { @apply list-outside ml-double; }
+ul, ol { @apply list-outside ml-double mt-default mb-double; }
 ul { @apply list-disc; }
 ol { @apply list-decimal; }
-li { @apply not-first:mt-default; }
+li { @apply not-first:mt-half; }
 
-h1, h2, h3, h4 { @apply leading-8 font-semibold; }
-h2, h3, h4 { @apply mt-double; }
+h1, h2, h3, h4, h5 { @apply leading-8 font-semibold; }
+h2, h3, h4, h5 { @apply mt-double; }
 main>h2:first-child, main>h3:first-child, main>h4:first-child,
 article>h2:first-child, article>h3:first-child, article>h4:first-child { @apply mt-default; }
 h1 { @apply text-step-4; }
 h2 { @apply text-step-3; }
-h3, h4 { @apply text-step-2; }
+h3, h4, h5 { @apply text-step-2; }
 
 pre { @apply grid overflow-auto my-default py-default leading-tight; }
 pre>code { @apply p-0 bg-transparent text-step-1; }
