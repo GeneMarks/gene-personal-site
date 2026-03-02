@@ -19,7 +19,7 @@
         <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}">
         <link rel="icon" href="{{ '/favicon.jpg' | url }}" type="image/jpeg">
         <link rel="alternate" href="/feed.xml" type="application/atom+xml" title="{{ metadata.siteName }} Feed">
-        <title>{{ title or metadata.siteName }}</title>
+        <title>{{ title + ' - ' + metadata.siteName if title else metadata.siteName }}</title>
     </head>
 
     <body class="px-half pb-default leading-5 text-step-1 text-typography dark:text-typography-dark font-primary-stack bg-base dark:bg-base-dark">
