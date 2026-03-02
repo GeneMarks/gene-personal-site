@@ -1,4 +1,5 @@
 ---
+title: Terms and Conditions
 layout: layouts/default.html
 lgBody: true
 ---
