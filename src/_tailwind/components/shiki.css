@@ -1,5 +1,5 @@
 .shiki code { @apply flex flex-col; }
-.shiki .line { @apply px-3 leading-[1.35]; }
+.shiki .line { @apply px-3; }
 
 .shiki {
     counter-reset: step;
