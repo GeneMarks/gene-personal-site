@@ -17,6 +17,9 @@
     --spacing-double:  calc(var(--spacing-default)*2);
     --spacing-half:    calc(var(--spacing-default)/2);
 
+    --leading-default: 1.35;
+    --leading-code:    1.35;
+
     /* Colors */
     --color-typography:      #1f2328;
     --color-base:            #f6f6f6;
