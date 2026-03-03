@@ -5,4 +5,5 @@ export default {
     authorName: "Gene Marks",
     authorEmail: "mail@genemarks.net",
     sourceUrl: "https://github.com/GeneMarks/blog.genemarks.net",
+    issoHost: "comments.genemarks.net",
 }

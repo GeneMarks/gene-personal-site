@@ -6,5 +6,6 @@
 
 @import "./components/default.css" layer(components);
 @import "./components/shiki.css" layer(components);
+@import "./components/isso.css" layer(components);
 
 @custom-variant dark (&:where(.darkmode, .darkmode *));

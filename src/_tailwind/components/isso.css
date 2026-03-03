@@ -1,0 +1,88 @@
+#isso-thread p { @apply m-0; }
+#isso-thread .isso-postbox { @apply mt-half; }
+#isso-thread .isso-textarea { @apply w-full min-h-25 p-half; }
+#isso-thread label { @apply block mb-half; }
+
+#isso-thread input[type="text"],
+#isso-thread input[type="email"] { @apply px-[calc(var(--spacing-default)*0.5)] py-[calc(var(--spacing-default)*0.25)]; }
+
+#isso-thread .isso-textarea,
+#isso-thread input[type="text"],
+#isso-thread input[type="email"] { @apply bg-highlight dark:bg-highlight-dark; }
+
+#isso-thread input[type="submit"],
+#isso-thread input[type="button"] { @apply hover:cursor-pointer; }
+
+#isso-thread input[type="submit"] { @apply py-half px-default text-body bg-accent dark:text-typography-dark dark:bg-highlight-dark dark:border-3 dark:border-accent-dark; }
+#isso-thread input[type="button"] { @apply hover:text-accent dark:hover:text-accent-dark; }
+
+#isso-thread .isso-auth-section .isso-input-wrapper { @apply block mt-default; }
+#isso-thread .isso-auth-section .isso-post-action { @apply inline-block mt-default; }
+#isso-thread .isso-auth-section .isso-post-action:not(:nth-child(4))>input { @apply ml-default; }
+
+#isso-root { @apply mt-[calc(var(--spacing-default)*3)]; }
+#isso-root .isso-postbox { @apply mt-double; }
+
+#isso-root .isso-comment { @apply flex flex-row flex-wrap gap-default mt-default; }
+#isso-root .isso-comment .isso-avatar { @apply w-8 md:w-12; }
+
+#isso-root .isso-text-wrapper { @apply flex-1 w-full min-w-0; }
+#isso-root .isso-comment>.isso-follow-up { @apply basis-full ml-default sm:ml-double md:ml-[calc(var(--spacing-default)*3)]; }
+#isso-root .isso-follow-up>.isso-comment { @apply mt-half; }
+
+#isso-root .isso-comment-header>*,
+#isso-root .isso-comment-footer>* { @apply inline-block; }
+
+#isso-root .isso-comment-footer { @apply mt-default; }
+#isso-root .isso-comment-footer a { @apply no-underline; }
+#isso-root .isso-comment-footer .isso-upvote,
+#isso-root .isso-comment-footer .isso-downvote { @apply align-middle; }
+#isso-root .isso-comment-footer>*:nth-child(5) { @apply ml-default; }
+#isso-root .isso-comment-footer>*:nth-child(n+6) { @apply ml-half; }
+
+#isso-root .isso-spacer { @apply mx-half opacity-40; }
+#isso-root .isso-author { @apply font-semibold; }
+#isso-root .isso-comment .isso-text { @apply mt-half; }
+#isso-root .isso-votes { @apply text-accent dark:text-accent-dark; }
+#isso-root .isso-no-votes .isso-votes { @apply hidden; }
+
+/* Preview mode */
+#isso-thread .isso-textarea { @apply block; }
+#isso-thread .isso-preview-mode .isso-textarea { @apply hidden; }
+
+#isso-thread .isso-preview { @apply hidden w-full min-h-25 p-half cursor-pointer; }
+#isso-thread .isso-preview-mode .isso-preview { @apply block; }
+
+#isso-thread .isso-post-action>input[name="edit"] { @apply hidden; }
+#isso-thread .isso-preview-mode .isso-post-action>input[name="edit"] { @apply block; }
+#isso-thread .isso-post-action>input[name="preview"] { @apply block; }
+#isso-thread .isso-preview-mode .isso-post-action>input[name="preview"] { @apply hidden; }
+
+#isso-thread .isso-preview {
+    background-color: var(--color-base);
+    background: repeating-linear-gradient(-45deg, var(--color-base), var(--color-base) 15px, var(--color-body) 15px, var(--color-body) 30px);
+    outline: 3px solid var(--color-accent);
+}
+
+.darkmode #isso-thread .isso-preview {
+    background-color: var(--color-base-dark);
+    background: repeating-linear-gradient(-45deg, var(--color-base-dark), var(--color-base-dark) 15px, var(--color-body-dark) 15px, var(--color-body-dark) 30px );
+    outline: 3px solid var(--color-accent-dark);
+}
+
+/* Comment markdown */
+/* #isso-thread .isso-comment .isso-text * { @apply [all:unset]; } */
+
+#isso-thread .isso-comment .isso-text * { @apply my-0; }
+
+#isso-thread .isso-comment .isso-text pre { @apply my-half py-0; }
+#isso-thread .isso-comment .isso-text pre>code { @apply px-default py-half rounded-none bg-highlight dark:bg-highlight-dark; }
+#isso-thread .isso-comment .isso-text blockquote { @apply my-half; }
+
+#isso-thread .isso-comment .isso-text hr { @apply block my-half invisible; }
+
+#isso-thread .isso-comment .isso-text h1,
+#isso-thread .isso-comment .isso-text h2,
+#isso-thread .isso-comment .isso-text h3,
+#isso-thread .isso-comment .isso-text h4,
+#isso-thread .isso-comment .isso-text h5 { @apply text-step-1; }
