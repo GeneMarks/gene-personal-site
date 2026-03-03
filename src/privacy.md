@@ -5,7 +5,7 @@ lgBody: true
 ---
 
 ## Privacy Policy
-*Effective date: 2026-03-01*
+*Effective date: 2026-03-03*
 
 ### Introduction
 
@@ -23,7 +23,7 @@ If you create an account or post a comment, the following information may be col
 
 - Email address
 - Username
-- Password (stored in hashed form)
+- Website
 - Comment content
 
 You are not required to provide your real name.
