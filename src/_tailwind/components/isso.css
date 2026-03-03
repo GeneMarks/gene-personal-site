@@ -35,6 +35,9 @@
 
 #isso-root .isso-comment-header .isso-permalink { @apply mr-half; }
 
+#isso-root .isso-comment.isso-is-page-author .isso-comment-header>*:nth-child(3),
+#isso-root .isso-comment.isso-is-page-author .isso-comment-header>*:nth-child(4) { @apply hidden; }
+
 #isso-root .isso-comment-footer { @apply mt-default; }
 #isso-root .isso-comment-footer a { @apply no-underline; }
 #isso-root .isso-comment-footer .isso-upvote,
