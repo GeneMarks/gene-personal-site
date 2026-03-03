@@ -1,6 +1,4 @@
 <script data-isso="//{{ metadata.issoHost }}/"
-        data-title="{{ title | escape }}"
-        data-isso-id="{{ page.url }}"
         data-isso-lang="en"
         data-isso-max-comments-top="inf"
         data-isso-max-comments-nested="inf"
@@ -10,6 +8,9 @@
         data-isso-css="false"
         src="//{{ metadata.issoHost }}/js/embed.min.js"></script>
 
-<section class="mt-double" id="isso-thread">
+<section id="isso-thread"
+         data-title="{{ title | escape }}"
+         data-isso-id="{{ page.url }}"
+         class="mt-double">
     <noscript>Please enable Javascript to view comments.</noscript>
 </section>
