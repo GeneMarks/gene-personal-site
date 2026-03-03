@@ -22,7 +22,7 @@
         <title>{{ title + ' - ' + metadata.siteName if title else metadata.siteName }}</title>
     </head>
 
-    <body class="px-half pb-default leading-5 text-step-1 text-typography dark:text-typography-dark font-primary-stack bg-base dark:bg-base-dark">
+    <body class="pb-double leading-default text-step-1 text-typography dark:text-typography-dark font-primary-stack bg-base dark:bg-base-dark sm:px-default sm:bg-base sm:dark:bg-base-dark">
         <div class="flex flex-col w-full mx-auto p-default bg-body dark:bg-body-dark {{ 'max-w-body-lg' if lgBody else 'max-w-body' }}">
             {% include "partials/header.html" %}
 
