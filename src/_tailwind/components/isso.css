@@ -23,7 +23,7 @@
 #isso-root { @apply mt-[calc(var(--spacing-default)*3)]; }
 
 #isso-root .isso-comment { @apply flex flex-row flex-wrap gap-default mt-default; }
-#isso-root .isso-comment .isso-avatar { @apply w-12 md:w-14; }
+#isso-root .isso-comment .isso-avatar { @apply w-10 md:w-12; }
 #isso-root .isso-comment .isso-avatar>img { @apply w-full m-0 rounded-full; }
 
 #isso-root .isso-text-wrapper { @apply flex-1 w-full min-w-0; }
