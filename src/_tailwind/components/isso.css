@@ -25,7 +25,6 @@
 #isso-root .isso-comment { @apply flex flex-row flex-wrap gap-default mt-default; }
 #isso-root .isso-comment .isso-avatar { @apply w-12 md:w-14; }
 #isso-root .isso-comment .isso-avatar>img { @apply w-full m-0 rounded-full; }
-#isso-root .isso-comment.isso-is-page-author .isso-avatar>img { @apply p-0.5 outline-2 outline-accent dark:outline-accent-dark }
 
 #isso-root .isso-text-wrapper { @apply flex-1 w-full min-w-0; }
 #isso-root .isso-comment>.isso-follow-up { @apply basis-full ml-default sm:ml-double md:ml-[calc(var(--spacing-default)*3)]; }
@@ -37,9 +36,6 @@
 #isso-root .isso-comment-header .isso-permalink { @apply mr-half; }
 #isso-root .isso-comment-header .isso-note { @apply opacity-60; }
 
-#isso-root .isso-comment.isso-is-page-author .isso-comment-header>*:nth-child(3),
-#isso-root .isso-comment.isso-is-page-author .isso-comment-header>*:nth-child(4) { @apply hidden; }
-
 #isso-root .isso-comment-footer { @apply mt-default; }
 #isso-root .isso-comment-footer a { @apply no-underline; }
 #isso-root .isso-comment-footer .isso-votes { @apply mr-half; }
@@ -50,10 +46,15 @@
 
 #isso-root .isso-spacer { @apply mx-half opacity-40; }
 #isso-root .isso-author { @apply font-semibold; }
-#isso-root .isso-comment.isso-is-page-author .isso-author { @apply italic; }
 #isso-root .isso-comment .isso-text { @apply mt-half; }
 #isso-root .isso-votes { @apply text-accent dark:text-accent-dark; }
 #isso-root .isso-no-votes .isso-votes { @apply hidden; }
+
+/* Page Author */
+#isso-root .isso-comment.isso-is-page-author>.isso-text-wrapper .isso-author { @apply italic; }
+#isso-root .isso-comment.isso-is-page-author>.isso-avatar>img { @apply p-0.5 outline-2 outline-accent dark:outline-accent-dark }
+#isso-root .isso-comment.isso-is-page-author>.isso-text-wrapper .isso-comment-header>*:nth-child(3),
+#isso-root .isso-comment.isso-is-page-author>.isso-text-wrapper .isso-comment-header>*:nth-child(4) { @apply hidden; }
 
 /* Preview mode */
 #isso-thread .isso-textarea { @apply block; }
