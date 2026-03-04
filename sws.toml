@@ -9,5 +9,9 @@ page404 = "./404/index.html"
 [advanced]
 
 [[advanced.headers]]
+source = "**/*.html"
+headers = { Cache-Control = "no-cache" }
+
+[[advanced.headers]]
 source = "**/*.asc"
 headers = { Content-Type = "text/plain; charset=utf-8" }
