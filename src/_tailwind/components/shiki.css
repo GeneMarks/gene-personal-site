@@ -8,7 +8,7 @@
 
 .shiki .line:not(:last-child)::before {
     counter-increment: step;
-    @apply inline-block mr-4 w-6.25 text-right opacity-40 content-[counter(step)];
+    @apply inline-block mr-4 w-[2ch] text-right opacity-40 content-[counter(step)];
 }
 
 /* .shiki .indent:nth-child(even) { @apply invisible; } */
