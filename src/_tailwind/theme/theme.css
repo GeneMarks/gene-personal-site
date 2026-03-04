@@ -11,14 +11,14 @@
     --text-step-4: 1.75rem;
 
     /* Spacing */
-    --spacing-body:    85ch;
+    --spacing-body:    100ch;
     --spacing-body-lg: 140ch;
     --spacing-default: 1rem;
     --spacing-double:  calc(var(--spacing-default)*2);
     --spacing-half:    calc(var(--spacing-default)/2);
 
-    --leading-default: 1.35;
-    --leading-code:    1.35;
+    --leading-default: 1.50;
+    --leading-code:    1.40;
 
     /* Colors */
     --color-typography:      #1f2328;
