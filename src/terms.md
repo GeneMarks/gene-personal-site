@@ -13,7 +13,7 @@ These Terms and Conditions (“Terms”, “Terms of Service”) govern your use
 
 By accessing or using the Service, you agree to these Terms. If you do not agree, please do not use the Service.
 
-Your use of the Service is also governed by the [Privacy Policy](/privacy) (“Agreements”).
+Your use of the Service is also governed by the [Privacy Policy](/privacy/) (“Agreements”).
 
 ### Use of the Service
 

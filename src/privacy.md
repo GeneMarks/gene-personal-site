@@ -13,7 +13,7 @@ This Privacy Policy explains how information is collected and used when you visi
 
 By accessing or using the Service, you agree with this Privacy Policy. If you do not agree, please do not use the Service.
 
-Your use of the Service is also governed by the [Terms and Conditions](/terms) (“Agreements”).
+Your use of the Service is also governed by the [Terms and Conditions](/terms/) (“Agreements”).
 
 ### Information Collected
 
