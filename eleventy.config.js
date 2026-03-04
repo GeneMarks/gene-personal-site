@@ -38,9 +38,6 @@ export default function(config) {
         return formatted.replace(/ (\d{4})$/, ", $1");
     });
 
-    // Global data
-    config.addGlobalData("build", new Date());
-
     // Passthroughs
     config.addPassthroughCopy("src/assets/**/*");
     config.addPassthroughCopy("src/uploads/**/*");
