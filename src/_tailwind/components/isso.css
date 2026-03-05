@@ -87,14 +87,15 @@
 
 /* Expand/minimize */
 #isso-root .isso-comment-header { @apply cursor-pointer hover:bg-highlight dark:hover:bg-highlight-dark; }
-#isso-root .isso-comment-header>.isso-expand-icon { @apply w-[calc(2.5rem+var(--spacing-default))] font-bold md:w-[calc(3rem+var(--spacing-default))]; }
+#isso-root .isso-comment-header>.isso-expand-icon { @apply hidden w-[calc(2.5rem+var(--spacing-default))] font-bold md:w-[calc(3rem+var(--spacing-default))]; }
 
 #isso-root .isso-comment.minimized .isso-avatar,
 #isso-root .isso-comment.minimized .isso-follow-up,
 #isso-root .isso-comment.minimized .isso-text-wrapper>.isso-text,
-#isso-root .isso-comment.minimized .isso-text-wrapper>.isso-comment-header>.isso-expand-icon,
 #isso-root .isso-comment.minimized .isso-text-wrapper>.isso-comment-footer { @apply hidden; }
 #isso-root .isso-comment.minimized .isso-comment-header { @appy bg-highlight dark:hover:bg-highlight-dark; }
+
+#isso-root .isso-comment.minimized .isso-text-wrapper>.isso-comment-header>.isso-expand-icon { @apply inline-block; }
 
 /* Comment markdown */
 /* #isso-thread .isso-comment .isso-text * { @apply [all:unset]; } */
