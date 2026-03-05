@@ -21,13 +21,15 @@
     --leading-code:    1.40;
 
     /* Colors */
-    --color-typography:      #000000;
-    --color-base:            #ffffff;
-    --color-accent:          #0969da;
-    --color-highlight:       #afb8c133;
+    --color-fg:             #000000;
+    --color-heading:        #000000;
+    --color-base:           #ffffff;
+    --color-accent:         #0969da;
+    --color-highlight:      #afb8c133;
 
-    --color-typography-dark: #c2c2c2;
-    --color-base-dark:       #1a1a1a;
-    --color-accent-dark:     #78df52;
-    --color-highlight-dark:  #272727;
+    --color-fg-dark:        #c2c2c2;
+    --color-heading-dark:   #e1e1e1;
+    --color-base-dark:      #1a1a1a;
+    --color-accent-dark:    #78df52;
+    --color-highlight-dark: #272727;
 }
