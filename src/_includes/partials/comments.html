@@ -17,10 +17,6 @@
 </section>
 
 <script>
-    const plusIcon = document.createElement("span");
-    plusIcon.innerHTML = "+";
-    plusIcon.classList = "isso-expand-icon";
-
     document.addEventListener("click", e => {
         if (!e.target.classList.contains("isso-comment-header")) return;
 
@@ -29,6 +25,10 @@
         const minimizedClass = "minimized";
 
         if (!commentHeader.contains(plusIcon)) {
+            const plusIcon = document.createElement("span");
+            plusIcon.innerHTML = "+";
+            plusIcon.classList = "isso-expand-icon";
+
             commentHeader.prepend(plusIcon);
         }
 
