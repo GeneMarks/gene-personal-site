@@ -1,7 +1,7 @@
 @theme {
     /* Fonts */
-    --font-primary-stack:   Verdana, sans-serif;
-    --font-secondary-stack: Consolas, monospace;
+    --font-sans: Verdana, sans-serif;
+    --font-mono: Consolas, monospace;
 
     /* Text sizes */
     --text-step-0: 0.85rem;
