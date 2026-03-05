@@ -25,14 +25,14 @@
 #isso-thread .isso-auth-section .isso-post-action { @apply mt-half }
 #isso-thread .isso-auth-section .isso-post-action>input[name="preview"] { @apply ml-half }
 
-#isso-root { @apply mt-[calc(var(--spacing-default)*3)]; }
+#isso-root { @apply mt-triple; }
 
 #isso-root .isso-comment { @apply flex flex-row flex-wrap gap-default mt-default; }
 #isso-root .isso-comment .isso-avatar { @apply w-10 md:w-12; }
 #isso-root .isso-comment .isso-avatar>img { @apply w-full m-0 rounded-full; }
 
 #isso-root .isso-text-wrapper { @apply flex-1 w-full min-w-0; }
-#isso-root .isso-comment>.isso-follow-up { @apply basis-full ml-default sm:ml-double md:ml-[calc(var(--spacing-default)*3)]; }
+#isso-root .isso-comment>.isso-follow-up { @apply basis-full ml-default sm:ml-double md:ml-triple; }
 #isso-root .isso-follow-up>.isso-comment { @apply mt-half; }
 
 #isso-root .isso-comment-header>*,

@@ -14,6 +14,7 @@
     --spacing-body:    110ch;
     --spacing-default: 1rem;
     --spacing-double:  calc(var(--spacing-default)*2);
+    --spacing-triple:  calc(var(--spacing-default)*3);
     --spacing-half:    calc(var(--spacing-default)/2);
 
     --leading-default: 1.50;
