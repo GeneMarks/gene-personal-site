@@ -93,7 +93,7 @@
 #isso-root .isso-comment.minimized .isso-follow-up,
 #isso-root .isso-comment.minimized .isso-text-wrapper>.isso-text,
 #isso-root .isso-comment.minimized .isso-text-wrapper>.isso-comment-footer { @apply hidden; }
-#isso-root .isso-comment.minimized .isso-comment-header { @appy bg-highlight dark:hover:bg-highlight-dark; }
+#isso-root .isso-comment.minimized .isso-comment-header { @apply bg-highlight dark:bg-highlight-dark; }
 
 #isso-root .isso-comment.minimized .isso-text-wrapper>.isso-comment-header>.isso-expand-icon { @apply inline-block; }
 
