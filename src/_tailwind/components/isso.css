@@ -87,7 +87,7 @@
 
 /* Expand/minimize */
 #isso-root .isso-comment-header { @apply cursor-pointer hover:bg-highlight dark:hover:bg-highlight-dark; }
-#isso-root .isso-comment-header>.isso-expand-icon { @apply hidden w-[calc(2.5rem+var(--spacing-default))] font-bold md:w-[calc(3rem+var(--spacing-default))]; }
+#isso-root .isso-comment-header>.isso-expand-icon { @apply hidden pointer-events-none w-[calc(2.5rem+var(--spacing-default))] font-bold md:w-[calc(3rem+var(--spacing-default))]; }
 
 #isso-root .isso-comment.minimized .isso-avatar,
 #isso-root .isso-comment.minimized .isso-follow-up,
