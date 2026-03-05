@@ -4,7 +4,7 @@ layout: layouts/default.html
 eleventyExcludeFromCollections: true
 ---
 
-<h2 class="mt-default">Archive</h2>
+<h2 class="mb-half">Archive</h2>
 {% set posts = collections.post | reverse %}
 {% set postsLimit = -1 %}
 {% include "partials/postsList.html" %}

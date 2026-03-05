@@ -2,12 +2,10 @@
 layout: layouts/default.html
 ---
 
-<div>
-    <p>Welcome to my website~ This blog is a place for me to write about anything that comes to mind, with an emphasis on software and tech.</p>
-</div>
+<p>Welcome to my website~ This blog is a place for me to write about anything that comes to mind, with an emphasis on software and tech.</p>
 
-<h2 class="mt-default">Recent posts</h2>
+<h2 class="mb-half">Recent posts</h2>
 {% set posts = collections.post | reverse %}
 {% set postsLimit = 8 %}
 {% include "partials/postsList.html" %}
-<a href="/blog/" class="block w-fit mb-default">More</a>
+<a href="/blog/" class="block mt-half">More</a>
