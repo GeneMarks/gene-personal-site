@@ -15,3 +15,23 @@
          class="mt-double">
     <noscript>Please enable Javascript to view comments.</noscript>
 </section>
+
+<script>
+    const plusIcon = document.createElement("span");
+    plusIcon.innerHTML = "+";
+    plusIcon.classList = "isso-expand-icon";
+
+    document.addEventListener("click", e => {
+        if (!e.target.classList.contains("isso-comment-header")) return;
+
+        const commentHeader = e.target;
+        const commentRoot = commentHeader.parentElement.parentElement;
+        const minimizedClass = "minimized";
+
+        if (!commentHeader.contains(plusIcon)) {
+            commentHeader.prepend(plusIcon);
+        }
+
+        commentRoot.classList.toggle(minimizedClass);
+    });
+</script>
