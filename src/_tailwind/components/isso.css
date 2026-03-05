@@ -13,7 +13,7 @@
 #isso-thread input[type="submit"],
 #isso-thread input[type="button"] { @apply hover:cursor-pointer; }
 
-#isso-thread input[type="submit"] { @apply py-half px-default text-body bg-accent dark:text-typography-dark dark:bg-highlight-dark dark:border-3 dark:border-accent-dark; }
+#isso-thread input[type="submit"] { @apply py-half px-default text-typography bg-accent dark:text-typography-dark dark:bg-highlight-dark dark:border-3 dark:border-accent-dark; }
 #isso-thread input[type="button"] { @apply hover:text-accent dark:hover:text-accent-dark; }
 
 #isso-thread .isso-auth-section { @apply flex flex-wrap gap-half items-center mt-default; }

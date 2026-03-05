@@ -1,7 +1,7 @@
 @theme {
     /* Fonts */
-    --font-primary-stack:   system-ui, sans-serif;
-    --font-secondary-stack: ui-monospace, 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+    --font-primary-stack:   Verdana, sans-serif;
+    --font-secondary-stack: Consolas, monospace;
 
     /* Text sizes */
     --text-step-0: 0.75rem;
@@ -11,8 +11,7 @@
     --text-step-4: 1.75rem;
 
     /* Spacing */
-    --spacing-body:    100ch;
-    --spacing-body-lg: 140ch;
+    --spacing-body:    110ch;
     --spacing-default: 1rem;
     --spacing-double:  calc(var(--spacing-default)*2);
     --spacing-half:    calc(var(--spacing-default)/2);
@@ -21,15 +20,13 @@
     --leading-code:    1.40;
 
     /* Colors */
-    --color-typography:      #1f2328;
-    --color-base:            #f6f6f6;
-    --color-body:            #ffffff;
+    --color-typography:      #000000;
+    --color-base:            #ffffff;
     --color-accent:          #0969da;
     --color-highlight:       #afb8c133;
 
-    --color-typography-dark: #cdd6f4;
-    --color-base-dark:       #1e1e2e;
-    --color-body-dark:       #191927;
-    --color-accent-dark:     #cba6f7;
-    --color-highlight-dark:  #6c708666;
+    --color-typography-dark: #c2c2c2;
+    --color-base-dark:       #1a1a1a;
+    --color-accent-dark:     #78df52;
+    --color-highlight-dark:  #272727;
 }

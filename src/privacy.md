@@ -1,7 +1,6 @@
 ---
 title: Privacy Policy
 layout: layouts/default.html
-lgBody: true
 ---
 
 ## Privacy Policy
