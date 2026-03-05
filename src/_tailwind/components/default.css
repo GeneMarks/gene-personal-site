@@ -3,8 +3,7 @@ img { @apply inline-block my-default; }
 main a, footer a { @apply text-accent dark:text-accent-dark underline; }
 main p { @apply my-default; }
 
-ul, ol { @apply list-outside ml-double my-double; }
-ul.postsList { @apply my-default; }
+ul, ol { @apply list-outside ml-double sm:ml-[calc(var(--spacing-default)*3)]; }
 ul { @apply list-disc; }
 ol { @apply list-decimal; }
 li { @apply not-first:mt-half; }
