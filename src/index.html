@@ -4,7 +4,7 @@ layout: layouts/default.html
 
 <p>Welcome to my website~ This blog is a place for me to write about anything that comes to mind, with an emphasis on software and tech.</p>
 
-<h2 class="mb-half">Recent posts</h2>
+<h2 class="mb-default">Recent posts</h2>
 {% set posts = collections.post | reverse %}
 {% set postsLimit = 8 %}
 {% include "partials/postsList.html" %}
