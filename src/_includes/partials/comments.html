@@ -24,10 +24,11 @@
         const commentRoot = commentHeader.parentElement.parentElement;
         const minimizedClass = "minimized";
 
-        if (!commentHeader.contains(plusIcon)) {
+        const plusIconClass = "isso-expand-icon";
+        if (!commentHeader.firstElementChild?.classList.contains(plusIconClass)) {
             const plusIcon = document.createElement("span");
             plusIcon.innerHTML = "+";
-            plusIcon.classList = "isso-expand-icon";
+            plusIcon.classList = plusIconClass;
 
             commentHeader.prepend(plusIcon);
         }
