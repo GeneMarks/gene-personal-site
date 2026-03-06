@@ -4,6 +4,7 @@ import shikiPlugin from "./plugins/shikiPlugin.js";
 import footnotePlugin from "./plugins/footnotePlugin.js";
 import anchorPlugin from "./plugins/anchorPlugin.js";
 import attrsPlugin from "./plugins/attrsPlugin.js";
+import markPlugin from "./plugins/markPlugin.js";
 
 export const config = {
       htmlTemplateEngine: "njk",
@@ -51,6 +52,15 @@ export default function(config) {
     config.addPlugin(attrsPlugin);
     config.addPlugin(anchorPlugin);
     config.addPlugin(footnotePlugin);
+    config.addPlugin(markPlugin);
+
+    config.addPlugin(shikiPlugin, {
+        themes: {
+            light: "gruvbox-light-hard",
+            dark: "dark-plus",
+        },
+        langs: ["asm", "bat", "c", "cmake", "cpp", "csharp", "css", "diff", "docker", "fsharp", "go", "html", "http", "ini", "java", "javascript", "json", "jsonc", "log", "lua", "make", "markdown", "nginx", "php", "powershell", "python", "regexp", "rust", "shellscript", "sql", "ssh-config", "toml", "typescript", "xml", "yaml"],
+    });
 
     config.addPlugin(feedPlugin, {
         type: "atom",
@@ -69,14 +79,6 @@ export default function(config) {
                 email: metadata.authorEmail,
             }
         }
-    });
-
-    config.addPlugin(shikiPlugin, {
-        themes: {
-            light: "gruvbox-light-hard",
-            dark: "dark-plus",
-        },
-        langs: ["asm", "bat", "c", "cmake", "cpp", "csharp", "css", "diff", "docker", "fsharp", "go", "html", "http", "ini", "java", "javascript", "json", "jsonc", "log", "lua", "make", "markdown", "nginx", "php", "powershell", "python", "regexp", "rust", "shellscript", "sql", "ssh-config", "toml", "typescript", "xml", "yaml"],
     });
 
     // Shortcodes

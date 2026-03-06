@@ -3,7 +3,8 @@ img { @apply inline-block my-default; }
 main a, footer a { @apply text-accent dark:text-accent-dark underline; }
 main p { @apply my-default; }
 hr { @apply block my-double; }
-strong { @apply text-heading dark:text-heading-dark }
+strong { @apply text-heading dark:text-heading-dark; }
+mark { @apply px-[calc(var(--spacing-half)/2)] bg-accent text-base dark:bg-accent-dark dark:text-base-dark; }
 
 ul, ol { @apply list-outside ml-double sm:ml-triple; }
 ul { @apply list-disc; }
