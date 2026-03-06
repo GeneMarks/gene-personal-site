@@ -1,10 +1,7 @@
-import markdownIt from "markdown-it";
 import markdownItAnchor from "markdown-it-anchor";
 
 export default async function(config) {
-    let library = markdownIt({
-        html: true,
-    }).use(markdownItAnchor, {
+    config.amendLibrary("md", (library) => library.use(markdownItAnchor, {
         permalink: markdownItAnchor.permalink.linkAfterHeader({
             style: "visually-hidden",
             assistiveText: (title) => `Permalink to “${title}”`,
@@ -12,7 +9,5 @@ export default async function(config) {
             wrapper: ['<div class="anchor-heading">', '</div>'],
             class: "anchor",
         }),
-    });
-
-    config.setLibrary("md", library);
+    }));
 }
