@@ -6,7 +6,7 @@ hr { @apply block my-double; }
 strong { @apply text-heading dark:text-heading-dark; }
 mark { @apply px-[calc(var(--spacing-half)/2)] bg-accent text-base dark:bg-accent-dark dark:text-base-dark; }
 
-ul, ol { @apply list-outside ml-double sm:ml-triple; }
+ul, ol { @apply list-outside my-default ml-double sm:ml-triple; }
 ul { @apply list-disc; }
 ol { @apply list-decimal; }
 li { @apply not-first:mt-half; }
