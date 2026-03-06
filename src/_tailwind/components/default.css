@@ -9,6 +9,8 @@ ul, ol { @apply list-outside ml-double sm:ml-triple; }
 ul { @apply list-disc; }
 ol { @apply list-decimal; }
 li { @apply not-first:mt-half; }
+li::marker { @apply text-heading; }
+.darkmode li::marker { @apply text-heading-dark; } /* Must apply .darkmode styling manually for ::marker */
 
 h1, h2, h3, h4, h5 { @apply font-semibold text-heading dark:text-heading-dark; }
 h2, h3, h4, h5 { @apply mt-double; }
