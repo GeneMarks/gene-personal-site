@@ -1,5 +1,5 @@
-import footnote_plugin from "markdown-it-footnote";
+import markdownItFootnote from "markdown-it-footnote";
 
 export default async function(config) {
-    config.amendLibrary("md", (library) => library.use(footnote_plugin));
+    config.amendLibrary("md", (library) => library.use(markdownItFootnote));
 }
