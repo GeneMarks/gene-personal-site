@@ -3,6 +3,7 @@ import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 import shikiPlugin from "./plugins/shikiPlugin.js";
 import footnotePlugin from "./plugins/footnotePlugin.js";
 import anchorPlugin from "./plugins/anchorPlugin.js";
+import attrsPlugin from "./plugins/attrsPlugin.js";
 
 export const config = {
       htmlTemplateEngine: "njk",
@@ -47,6 +48,7 @@ export default function(config) {
     config.addPassthroughCopy("src/public_key.asc");
 
     // Plugins
+    config.addPlugin(attrsPlugin);
     config.addPlugin(anchorPlugin);
     config.addPlugin(footnotePlugin);
 
