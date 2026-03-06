@@ -26,6 +26,7 @@
 #isso-thread .isso-auth-section .isso-post-action>input[name="preview"] { @apply ml-half }
 
 #isso-root { @apply mt-triple; }
+#isso-root:empty { @apply hidden; }
 
 #isso-root .isso-comment { @apply flex flex-row flex-wrap gap-default mt-default; }
 #isso-root .isso-comment .isso-avatar { @apply w-10 md:w-12; }
