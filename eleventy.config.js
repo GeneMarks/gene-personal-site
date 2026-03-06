@@ -2,6 +2,7 @@ import metadata from "./src/_data/metadata.js";
 import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 import shikiPlugin from "./plugins/shikiPlugin.js";
 import footnotePlugin from "./plugins/footnotePlugin.js";
+import anchorPlugin from "./plugins/anchorPlugin.js";
 
 export const config = {
       htmlTemplateEngine: "njk",
@@ -46,6 +47,9 @@ export default function(config) {
     config.addPassthroughCopy("src/public_key.asc");
 
     // Plugins
+    config.addPlugin(anchorPlugin);
+    config.addPlugin(footnotePlugin);
+
     config.addPlugin(feedPlugin, {
         type: "atom",
         outputPath: "/feed.xml",
@@ -72,8 +76,6 @@ export default function(config) {
         },
         langs: ["asm", "bat", "c", "cmake", "cpp", "csharp", "css", "diff", "docker", "fsharp", "go", "html", "http", "ini", "java", "javascript", "json", "jsonc", "log", "lua", "make", "markdown", "nginx", "php", "powershell", "python", "regexp", "rust", "shellscript", "sql", "ssh-config", "toml", "typescript", "xml", "yaml"],
     });
-
-    config.addPlugin(footnotePlugin);
 
     // Shortcodes
     config.addShortcode("year", () => `${new Date().getFullYear()}`);

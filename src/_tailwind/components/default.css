@@ -13,11 +13,12 @@ li::marker { @apply text-heading; }
 .darkmode li::marker { @apply text-heading-dark; } /* Must apply .darkmode styling manually for ::marker */
 
 h1, h2, h3, h4, h5 { @apply font-semibold text-heading dark:text-heading-dark; }
-h2, h3, h4, h5 { @apply mt-double; }
-main>h2:first-child, article>h2:first-child, article>h3:nth-child(3) { @apply mt-default; }
 h1 { @apply text-step-4; }
 h2 { @apply text-step-3; }
 h3, h4, h5 { @apply text-step-2; }
+
+.anchor-heading { @apply flex items-center gap-half mt-double; }
+.anchor-heading>.anchor { @apply text-step-2; }
 
 pre { @apply grid overflow-auto my-default py-default border-dashed border border-fg dark:border dark:border-highlight-dark; }
 pre>code { @apply p-0 bg-transparent leading-code text-step-0 md:text-step-1; }
