@@ -13,8 +13,8 @@
 
 /* .shiki .indent:nth-child(even) { @apply invisible; } */
 .shiki .indent { @apply inline-block relative left-(--indent-offset); }
-.shiki .indent:empty { @apply h-lh align-bottom }
-.shiki .indent::before { @apply absolute w-px h-full opacity-[0.10] bg-current content-[''] }
+.shiki .indent:empty { @apply h-lh align-bottom; }
+.shiki .indent::before { @apply absolute w-px h-full opacity-[0.10] bg-current content-['']; }
 
 .shiki, .shiki span { @apply dark:text-(--shiki-dark)! dark:bg-(--shiki-dark-bg)!; }
 .shiki .highlighted, .shiki .highlighted span { @apply bg-[#e7e2b9]! dark:bg-[#292929]!; }
