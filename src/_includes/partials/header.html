@@ -1,8 +1,8 @@
 <header class="text-center mb-default sm:text-left">
-    <h1 class="underline font-semibold">
-        <a href="/" class="inline-block">{{ metadata.siteName }}</a>
+    <h1 class="px-quarter py-default underline bg-linear-to-b from-highlight dark:from-highlight-dark to-transparent bg-repeat-x">
+        <a href="/" class="inline-block text-fg dark:text-fg-dark">{{ metadata.siteName }}</a>
     </h1>
-    <nav class="flex flex-row flex-wrap gap-default w-full px-[calc(var(--spacing-default)*0.5)] py-[calc(var(--spacing-default)*0.25)] mt-default bg-highlight dark:bg-highlight-dark sm:gap-double">
+    <nav class="flex flex-row flex-wrap gap-default w-full px-half py-quarter bg-highlight dark:bg-highlight-dark border border-dashed border-fg dark:border-fg-dark sm:gap-double">
         <a href="/" class="hover:underline hover:text-accent dark:hover:text-accent-dark">Home</a>
         <a href="/blog/" class="hover:underline hover:text-accent dark:hover:text-accent-dark">Blog</a>
         <a href="mailto:{{ metadata.authorEmail }}" class="hover:underline hover:text-accent dark:hover:text-accent-dark">Email</a>
