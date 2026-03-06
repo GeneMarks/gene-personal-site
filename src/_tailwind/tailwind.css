@@ -4,7 +4,7 @@
 @import "tailwindcss/preflight" layer(base);
 @import "tailwindcss/utilities" layer(utilities);
 
-@import "./components/default.css" layer(components);
+@import "./components/main.css" layer(components);
 @import "./components/shiki.css" layer(components);
 @import "./components/isso.css" layer(components);
 
