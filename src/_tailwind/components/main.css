@@ -30,6 +30,6 @@ blockquote { @apply my-default px-default py-half bg-highlight dark:bg-highlight
 blockquote cite { @apply block mt-2 w-fit before:content-['—'] before:mr-2; }
 
 table { @apply table-auto border-collapse w-full my-double; }
-table, th, td { @apply border border-dashed border-fg dark:border-fg-dark; }
+table, th, td { @apply border border-dashed border-fg dark:border-fg-muted-dark; }
 th, td { @apply p-half; }
 th { @apply bg-highlight dark:bg-highlight-dark; }

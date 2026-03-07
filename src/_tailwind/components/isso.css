@@ -76,13 +76,13 @@
 
 #isso-thread .isso-preview {
     background-color: var(--color-base);
-    background: repeating-linear-gradient(-45deg, var(--color-base), var(--color-base) 15px, #f6f6f6 15px, #f6f6f6 30px);
+    background: repeating-linear-gradient(-45deg, var(--color-base), var(--color-base) 15px, var(--color-highlight-muted) 15px, var(--color-highlight-muted) 30px);
     outline: 3px solid var(--color-accent);
 }
 
 .darkmode #isso-thread .isso-preview {
     background-color: var(--color-base-dark);
-    background: repeating-linear-gradient(-45deg, var(--color-base-dark), var(--color-base-dark) 15px, #1f252b 15px, #1f252b 30px );
+    background: repeating-linear-gradient(-45deg, var(--color-base-dark), var(--color-base-dark) 15px, var(--color-highlight-muted-dark) 15px, var(--color-highlight-muted-dark) 30px );
     outline: 3px solid var(--color-accent-dark);
 }
 
