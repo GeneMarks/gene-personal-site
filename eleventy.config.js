@@ -1,4 +1,5 @@
 import metadata from "./src/_data/metadata.js";
+import * as cheerio from "cheerio";
 import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 import shikiPlugin from "./plugins/shikiPlugin.js";
 import footnotePlugin from "./plugins/footnotePlugin.js";
@@ -14,6 +15,35 @@ export default function(config) {
     // Directories
     config.setInputDirectory("src");
     config.setOutputDirectory("dist");
+
+    // Passthroughs
+    config.addPassthroughCopy("src/assets/**/*");
+    config.addPassthroughCopy("src/uploads/**/*");
+    config.addPassthroughCopy("src/favicon.jpg");
+    config.addPassthroughCopy("src/public_key.asc");
+
+    // Shortcodes
+    config.addShortcode("year", () => `${new Date().getFullYear()}`);
+
+    // Transforms
+    config.addTransform("updateLinks", (content, outputPath) => {
+        if (!outputPath || !outputPath.endsWith(".html")) return content;
+
+        const externalLinkSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path fill="currentColor" d="M6 1h5v5L8.86 3.85 4.7 8 4 7.3l4.15-4.16L6 1ZM2 3h2v1H2v6h6V8h1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"></path></svg>';
+        const $ = cheerio.load(content);
+
+        $('a[href^="http"]')
+            .filter((_, a) => $(a).text().trim() != '')
+            .each((_, a) => {
+                $(a)
+                    .append(externalLinkSvg)
+                    .addClass("external")
+                    .attr("target", "_blank")
+                    .attr("rel", "noopener");
+            });
+
+        return $.html();
+    });
 
     // Filters
     config.addFilter("formatDetailedDateTime", (value) => {
@@ -41,12 +71,6 @@ export default function(config) {
 
         return formatted.replace(/ (\d{4})$/, ", $1");
     });
-
-    // Passthroughs
-    config.addPassthroughCopy("src/assets/**/*");
-    config.addPassthroughCopy("src/uploads/**/*");
-    config.addPassthroughCopy("src/favicon.jpg");
-    config.addPassthroughCopy("src/public_key.asc");
 
     // Plugins
     config.addPlugin(attrsPlugin);
@@ -80,7 +104,4 @@ export default function(config) {
             }
         }
     });
-
-    // Shortcodes
-    config.addShortcode("year", () => `${new Date().getFullYear()}`);
 };
