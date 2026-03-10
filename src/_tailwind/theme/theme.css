@@ -46,7 +46,7 @@
     --color-highlight-fg:              var(--color-base);
 
     --color-table-head-bg:             var(--color-base);
-    --color-table-even-bg:             var(--color-table-hr-bg);
+    --color-table-even-bg:             var(--color-table-head-bg);
     --color-table-odd-bg:              #f9f9f9;
     --color-table-border:              var(--color-edge);
 
