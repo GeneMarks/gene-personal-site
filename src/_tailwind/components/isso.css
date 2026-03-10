@@ -44,7 +44,7 @@
 #isso-root .isso-comment-footer>*:nth-child(5) { @apply ml-default; }
 #isso-root .isso-comment-footer>*:nth-child(n+6) { @apply ml-half; }
 
-#isso-root .isso-comment-footer .isso-votes { @apply mr-half text-comment-votes-fg; }
+#isso-root .isso-comment-footer .isso-votes { @apply mr-half text-step-0; }
 #isso-root .isso-comment-footer .isso-upvote,
 #isso-root .isso-comment-footer .isso-downvote { @apply align-middle; }
 #isso-root .isso-comment-footer .isso-upvote>svg,
