@@ -1,0 +1,19 @@
+#search .pagefind-ui__suppressed { @apply hidden; }
+
+#search { @apply min-h-12; }
+
+#search .pagefind-ui { @apply text-left; }
+#search .pagefind-ui__form { @apply relative; }
+#search .pagefind-ui__search-input { @apply relative flex w-full h-12 pl-half bg-search-bg text-search-fg border border-search-border rounded-md; }
+#search .pagefind-ui__search-clear { @apply absolute h-12 px-half top-0 right-0 text-step-0; }
+
+#search .pagefind-ui__drawer * { @apply m-0; }
+
+#search ol, #search ul { @apply list-none; }
+#search li.pagefind-ui__result:not(:first-child) { @apply mt-default; }
+
+#search .pagefind-ui__results { @apply mt-default; }
+#search .pagefind-ui__result { @apply p-half border border-search-border; }
+#search img.pagefind-ui__result-image { @apply my-half max-w-3xs; }
+#search .pagefind-ui__result-inner>.pagefind-ui__result-title { @apply text-step-2; }
+#search .pagefind-ui__result-nested { @apply mt-half; }

@@ -4,8 +4,10 @@ layout: layouts/default.html
 
 <p>Welcome to my website~ This blog is a place for me to write about anything that comes to mind, with an emphasis on software and tech.</p>
 
-<h2 class="mt-double">Recent posts</h2>
-{% set posts = collections.post | reverse %}
+{% set posts = collections.postsByCreated %}
 {% set postsLimit = 8 %}
+{% set tableTitle = 'Recent Posts' %}
 {% include "partials/postsList.html" %}
-<a href="/blog/" class="inline-block">More...</a>
+<div class="-mt-default">
+    <a href="/blog/" class="inline-block">More...</a>
+</div>

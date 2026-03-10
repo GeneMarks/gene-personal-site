@@ -1,35 +1,47 @@
-* { @apply wrap-break-word; }
 img { @apply inline-block my-default; }
-main a, footer a { @apply text-accent dark:text-accent-dark underline; }
 main p { @apply my-default; }
-hr { @apply block my-double; }
-strong { @apply text-heading dark:text-heading-dark; }
-mark { @apply px-[calc(var(--spacing-half)/2)] bg-accent text-base dark:bg-accent-dark dark:text-base-dark; }
+hr { @apply block my-double text-edge; }
+strong { @apply text-heading; }
+mark { @apply px-quarter bg-highlight-bg text-highlight-fg; }
+
+a { @apply text-link underline; }
+a, a>span {
+    word-break: break-word;
+}
+a:hover { @apply text-link-hover; }
+a.external, a.external>svg { @apply inline-block; }
+a.external>svg { @apply align-baseline ml-quarter; }
+
+button { @apply hover:cursor-pointer; }
 
 ul, ol { @apply list-outside my-default ml-double sm:ml-triple; }
 ul { @apply list-disc; }
 ol { @apply list-decimal; }
 li { @apply not-first:mt-half; }
 li>p { @apply my-0; }
-li::marker { @apply text-heading; }
-.darkmode li::marker { @apply text-heading-dark; } /* Must apply .darkmode styling manually for ::marker */
+li::marker { @apply text-marker; }
 
-h1, h2, h3, h4, h5 { @apply font-semibold wrap-anywhere text-heading dark:text-heading-dark; }
-h1 { @apply text-step-4; }
-h2 { @apply text-step-3; }
-h3, h4, h5 { @apply text-step-2; }
+h1, h2, h3, h4, h5 { @apply font-semibold wrap-anywhere text-heading; }
+h1 { @apply text-step-5; }
+h2 { @apply text-step-4; }
+h3 { @apply text-step-3; }
+h4, h5 { @apply text-step-2; }
 
-.anchor-heading { @apply flex items-start gap-half mt-double; }
-.anchor-heading>.anchor { @apply text-step-2; }
+.anchor-heading { @apply mt-double; }
+.anchor-heading>* { @apply inline align-baseline; }
+.anchor-heading>.anchor { @apply ml-quarter text-step-2; }
 
-pre { @apply grid overflow-auto my-default py-default border-dashed border border-fg dark:border dark:border-highlight-dark; }
+pre { @apply grid overflow-auto my-default py-default border border-dashed border-code-block-border; }
 pre>code { @apply p-0 bg-transparent leading-code text-step-0 md:text-step-1; }
-code { @apply py-0.5 px-1.5 leading-none rounded-sm bg-highlight dark:bg-highlight-dark font-mono text-step-0; }
+code { @apply py-0.5 px-1.5 leading-none rounded-sm bg-code-inline-bg font-mono text-step-0; }
 
-blockquote { @apply my-default px-default py-half bg-highlight dark:bg-highlight-dark; }
+blockquote { @apply my-default px-default py-half border border-blockquote-border; }
 blockquote cite { @apply block mt-2 w-fit before:content-['—'] before:mr-2; }
 
-table { @apply table-auto border-collapse w-full my-double; }
-table, th, td { @apply border border-dashed border-fg dark:border-fg-muted-dark; }
+.table-wrapper { @apply overflow-x-auto w-full my-double; }
+table { @apply table-auto border-collapse w-full; }
+table, th, td { @apply border border-edge; }
 th, td { @apply p-half; }
-th { @apply bg-highlight dark:bg-highlight-dark; }
+th { @apply bg-table-head-bg; }
+tbody>tr:nth-child(even) { @apply bg-table-even-bg; }
+tbody>tr:nth-child(odd) { @apply bg-table-odd-bg; }

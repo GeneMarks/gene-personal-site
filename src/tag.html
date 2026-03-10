@@ -1,13 +1,20 @@
 ---
-title: Archive
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter:
+    - post
+permalink: /tags/{{ tag }}/
 layout: layouts/default.html
-eleventyExcludeFromCollections: true
 ---
 
 <div class="p-default text-center border border-edge">
-    <h2>Post Archives</h2>
+    <h2>Tagged "{{ tag }}"</h2>
 
-    <p class="mt-default">Here you can view all blog posts in reverse-chronological order or select a specific tag.</p>
+    <div class="mt-half">
+        <a href="/blog/">Back to all posts ↩︎</a>
+    </div>
 
     <div class="flex flex-row flex-wrap gap-x-default gap-y-half justify-center mt-default max-w-160 mx-auto">
         {%- for tag in collections.tagList -%}
@@ -16,7 +23,6 @@ eleventyExcludeFromCollections: true
     </div>
 </div>
 
-{% set posts = collections.postsByCreated %}
+{% set posts = collections[tag] | sort(attribute="data.created") | reverse %}
 {% set postsLimit = -1 %}
-{% set tableTitle = 'All Posts' %}
 {% include "partials/postsList.html" %}

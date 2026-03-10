@@ -3,18 +3,15 @@
 #isso-thread .isso-textarea { @apply w-full min-h-25 p-half; }
 #isso-thread label { @apply block mb-half; }
 
+#isso-thread textarea,
 #isso-thread input[type="text"],
-#isso-thread input[type="email"] { @apply px-[calc(var(--spacing-default)*0.5)] py-[calc(var(--spacing-default)*0.25)]; }
-
-#isso-thread .isso-textarea,
-#isso-thread input[type="text"],
-#isso-thread input[type="email"] { @apply bg-highlight dark:bg-highlight-dark; }
+#isso-thread input[type="email"] { @apply px-half py-quarter text-comment-input-fg bg-comment-input-bg border border-comment-input-border; }
 
 #isso-thread input[type="submit"],
 #isso-thread input[type="button"] { @apply hover:cursor-pointer; }
 
-#isso-thread input[type="submit"] { @apply py-half px-default text-base bg-accent dark:text-fg-dark dark:bg-highlight-dark dark:border-3 dark:border-accent-dark; }
-#isso-thread input[type="button"] { @apply hover:text-accent dark:hover:text-accent-dark; }
+#isso-thread input[type="submit"] { @apply py-half px-default text-comment-submit-fg bg-comment-submit-bg hover:bg-comment-submit-bg-hover; }
+#isso-thread input[type="button"] { @apply hover:text-link-hover; }
 
 #isso-thread .isso-auth-section { @apply flex flex-wrap gap-half items-center mt-default; }
 #isso-thread .isso-auth-section .isso-input-wrapper {
@@ -53,12 +50,11 @@
 #isso-root .isso-spacer { @apply mx-half opacity-40; }
 #isso-root .isso-author { @apply font-semibold; }
 #isso-root .isso-comment .isso-text { @apply mt-half; }
-#isso-root .isso-votes { @apply text-accent dark:text-accent-dark; }
 #isso-root .isso-no-votes .isso-votes { @apply hidden; }
 
 /* Page Author */
 #isso-root .isso-comment.isso-is-page-author>.isso-text-wrapper .isso-author { @apply italic; }
-#isso-root .isso-comment.isso-is-page-author>.isso-avatar>img { @apply p-0.5 outline-2 outline-accent dark:outline-accent-dark; }
+#isso-root .isso-comment.isso-is-page-author>.isso-avatar>img { @apply p-0.5 outline-2 outline-comment-author-outline; }
 #isso-root .isso-comment.isso-is-page-author>.isso-text-wrapper .isso-comment-header>*:nth-child(3),
 #isso-root .isso-comment.isso-is-page-author>.isso-text-wrapper .isso-comment-header>*:nth-child(4) { @apply hidden; }
 
@@ -76,25 +72,19 @@
 
 #isso-thread .isso-preview {
     background-color: var(--color-base);
-    background: repeating-linear-gradient(-45deg, var(--color-base), var(--color-base) 15px, var(--color-highlight-muted) 15px, var(--color-highlight-muted) 30px);
-    outline: 3px solid var(--color-accent);
-}
-
-.darkmode #isso-thread .isso-preview {
-    background-color: var(--color-base-dark);
-    background: repeating-linear-gradient(-45deg, var(--color-base-dark), var(--color-base-dark) 15px, var(--color-highlight-muted-dark) 15px, var(--color-highlight-muted-dark) 30px );
-    outline: 3px solid var(--color-accent-dark);
+    background: repeating-linear-gradient(-45deg, var(--color-comment-preview-bg-1), var(--color-comment-preview-bg-1) 15px, var(--color-comment-preview-bg-2) 15px, var(--color-comment-preview-bg-2) 30px);
+    border: 3px solid var(--color-comment-preview-border);
 }
 
 /* Expand/minimize */
-#isso-root .isso-comment-header { @apply cursor-pointer hover:bg-highlight dark:hover:bg-highlight-dark; }
+#isso-root .isso-comment-header { @apply cursor-pointer hover:bg-comment-minimize-bg; }
 #isso-root .isso-comment-header>.isso-expand-icon { @apply hidden pointer-events-none w-[calc(2.5rem+var(--spacing-default))] font-bold md:w-[calc(3rem+var(--spacing-default))]; }
 
 #isso-root .isso-comment.minimized .isso-avatar,
 #isso-root .isso-comment.minimized .isso-follow-up,
 #isso-root .isso-comment.minimized .isso-text-wrapper>.isso-text,
 #isso-root .isso-comment.minimized .isso-text-wrapper>.isso-comment-footer { @apply hidden; }
-#isso-root .isso-comment.minimized .isso-comment-header { @apply bg-highlight dark:bg-highlight-dark; }
+#isso-root .isso-comment.minimized .isso-comment-header { @apply bg-comment-minimize-bg; }
 
 #isso-root .isso-comment.minimized .isso-text-wrapper>.isso-comment-header>.isso-expand-icon { @apply inline-block; }
 
@@ -104,7 +94,7 @@
 #isso-thread .isso-comment .isso-text * { @apply my-0; }
 
 #isso-thread .isso-comment .isso-text pre { @apply my-half py-0; }
-#isso-thread .isso-comment .isso-text pre>code { @apply px-default py-half rounded-none bg-highlight dark:bg-highlight-dark; }
+#isso-thread .isso-comment .isso-text pre>code { @apply px-default py-half rounded-none bg-comment-md-code-block-bg; }
 #isso-thread .isso-comment .isso-text blockquote { @apply my-half; }
 
 #isso-thread .isso-comment .isso-text hr { @apply block my-half invisible; }

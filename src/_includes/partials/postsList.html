@@ -1,16 +1,24 @@
-<ul>
-    {%- for post in posts -%}
-        {% set first_item = (loop.index0 == 0) %}
+<div class="table-wrapper">
+    <table>
+        <thead>
+            <tr>
+                <th colspan="2">{{ tableTitle or 'Posts' }}</th>
+            </tr>
+        </thead>
 
-        {% if postsLimit is not defined or postsLimit == -1 or loop.index0 < postsLimit %}
-            <li>
-                <div class="flex flex-col sm:flex-row">
-                    <span class="min-w-[12ch]">
-                        <i><time datetime="{{ post.date.toISOString() }}">{{ post.date | formatPostDate }}</time></i>
-                    </span>
-                    <a href="{{ post.url }}">{{ post.data.title }}</a>
-                </div>
-            </li>
-        {% endif %}
-    {%- endfor -%}
-</ul>
+        <tbody>
+            {%- for post in posts -%}
+                {% if postsLimit is not defined or postsLimit == -1 or loop.index0 < postsLimit %}
+                    <tr>
+                        <td class="text-right">
+                            <time datetime="{{ post.data.created | htmlDateTime }}">{{ post.data.created | formatPostCreatedDate }}</time>
+                        </td>
+                        <td class="text-left">
+                            <a href="{{ post.url }}">{{ post.data.title }}</a>
+                        </td>
+                    </tr>
+                {% endif %}
+            {%- endfor -%}
+        </tbody>
+    </table>
+</div>

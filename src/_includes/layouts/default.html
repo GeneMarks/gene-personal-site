@@ -27,17 +27,15 @@
         <title>{{ title + ' - ' + metadata.siteName if title else metadata.siteName }}</title>
     </head>
 
-    <body class="leading-default text-step-1 text-fg dark:text-fg-dark font-sans bg-base dark:bg-base-dark">
-        <div class="flex flex-col max-w-body w-full mx-auto">
+    <body class="leading-default text-step-1 text-fg font-sans bg-base">
+        <div class="max-w-body w-full mx-auto px-default">
             {% include "partials/header.html" %}
 
-            <div class="mx-default">
-                <main>
-                    {{ content | safe }}
-                </main>
+            <main>
+                {{ content | safe }}
+            </main>
 
-                {% include "partials/footer.html" %}
-            </div>
+            {% include "partials/footer.html" %}
         </div>
     </body>
 </html>

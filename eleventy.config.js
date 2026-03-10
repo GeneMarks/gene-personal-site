@@ -1,3 +1,5 @@
+import { execSync } from "node:child_process";
+import { DateTime } from "luxon";
 import metadata from "./src/_data/metadata.js";
 import * as cheerio from "cheerio";
 import { feedPlugin } from "@11ty/eleventy-plugin-rss";
@@ -6,6 +8,9 @@ import footnotePlugin from "./plugins/footnotePlugin.js";
 import anchorPlugin from "./plugins/anchorPlugin.js";
 import attrsPlugin from "./plugins/attrsPlugin.js";
 import markPlugin from "./plugins/markPlugin.js";
+import tableWrapPlugin from "./plugins/tableWrapPlugin.js";
+
+const buildDir = "dist";
 
 export const config = {
       htmlTemplateEngine: "njk",
@@ -14,7 +19,7 @@ export const config = {
 export default function(config) {
     // Directories
     config.setInputDirectory("src");
-    config.setOutputDirectory("dist");
+    config.setOutputDirectory(buildDir);
 
     // Passthroughs
     config.addPassthroughCopy("src/assets/**/*");
@@ -22,8 +27,61 @@ export default function(config) {
     config.addPassthroughCopy("src/favicon.jpg");
     config.addPassthroughCopy("src/public_key.asc");
 
+    // Collections
+    config.addCollection("postsByCreated", (collectionApi) =>
+        collectionApi.getFilteredByTag("post")
+                     .sort((a, b) => b.data.created - a.data.created));
+
+    config.addCollection("tagList", (collectionApi) => {
+        const filter = ["post"];
+        const tagSet = new Set();
+
+        collectionApi.getAll().forEach((item) => {
+            (item.data.tags || []).forEach((tag) => {
+                if (!filter.includes(tag)) {
+                    tagSet.add(tag);
+                }
+            });
+        });
+
+        return [...tagSet].sort();
+    });
+
     // Shortcodes
     config.addShortcode("year", () => `${new Date().getFullYear()}`);
+
+    // Filters
+    config.addFilter("exclude", (collection, stringToFilter) => {
+        if (!stringToFilter) return collection;
+        return (collection ?? []).filter(item => item !== stringToFilter);
+    });
+
+    config.addFilter("htmlDateTime", (value) => {
+        return DateTime.fromJSDate(value);
+    });
+
+    config.addFilter("formatPostModifiedDate", (value) => {
+        return new Intl.DateTimeFormat("en-US", {
+            timeZone: "America/New_York",
+            weekday: "short",
+            year: "numeric",
+            month: "short",
+            day: "2-digit",
+            hour: "2-digit",
+            minute: "2-digit",
+            timeZoneName: "short"
+        }).format(value);
+    });
+
+    config.addFilter("formatPostCreatedDate", (value) => {
+        return new Intl.DateTimeFormat("en-GB", {
+            timeZone: "America/New_York",
+            year: "numeric",
+            month: "short",
+            day: "2-digit",
+        }).format(value)
+          .replace(/ (\d{4})$/, ", $1");
+    });
 
     // Transforms
     config.addTransform("updateLinks", (content, outputPath) => {
@@ -35,41 +93,23 @@ export default function(config) {
         $('a[href^="http"]')
             .filter((_, a) => $(a).text().trim() != '')
             .each((_, a) => {
-                $(a)
-                    .append(externalLinkSvg)
-                    .addClass("external")
-                    .attr("target", "_blank")
-                    .attr("rel", "noopener");
+                const el = $(a);
+                const text = el.text();
+
+                el.empty().append(`<span>${text}</span>`);
+
+                el.append(externalLinkSvg)
+                   .addClass("external")
+                   .attr("target", "_blank")
+                   .attr("rel", "noopener");
             });
 
         return $.html();
     });
 
-    // Filters
-    config.addFilter("formatDetailedDateTime", (value) => {
-        const formatted = new Intl.DateTimeFormat("en-US", {
-            timeZone: "UTC",
-            weekday: "short",
-            year: "numeric",
-            month: "short",
-            day: "2-digit",
-            hour: "2-digit",
-            minute: "2-digit",
-            timeZoneName: "short"
-        }).format(value);
-
-        return formatted;
-    });
-
-    config.addFilter("formatPostDate", (value) => {
-        const formatted = new Intl.DateTimeFormat("en-GB", {
-            timeZone: "UTC",
-            year: "numeric",
-            month: "short",
-            day: "2-digit",
-        }).format(value);
-
-        return formatted.replace(/ (\d{4})$/, ", $1");
+    // Events
+    config.on("eleventy.after", () => {
+        execSync(`npx -y pagefind --site ${buildDir} --glob \"**/*.html\"`, { encoding: "utf-8" })
     });
 
     // Plugins
@@ -77,11 +117,12 @@ export default function(config) {
     config.addPlugin(anchorPlugin);
     config.addPlugin(footnotePlugin);
     config.addPlugin(markPlugin);
+    config.addPlugin(tableWrapPlugin);
 
     config.addPlugin(shikiPlugin, {
         themes: {
             light: "gruvbox-light-hard",
-            dark: "houston",
+            dark: "gruvbox-dark-hard",
         },
         langs: ["asm", "bat", "c", "cmake", "cpp", "csharp", "css", "diff", "docker", "fsharp", "go", "html", "http", "ini", "java", "javascript", "json", "jsonc", "log", "lua", "make", "markdown", "nginx", "php", "powershell", "python", "regexp", "rust", "shellscript", "sql", "ssh-config", "toml", "typescript", "xml", "yaml"],
     });

@@ -1,0 +1,42 @@
+<button id="themeToggle"
+        type="button"
+        aria-label="Toggle theme"
+        class="hidden text-link hover:text-link-hover"
+></button>
+
+<script>
+    const key = "theme";
+    const states = ["system", "dark", "light"];
+    const themeToggle = document.getElementById("themeToggle");
+
+    function getCurrentTheme() {
+        return localStorage.getItem(key) ?? "system";
+    }
+
+    function setThemeState(state) {
+        if (state === "system") {
+            localStorage.removeItem(key);
+        } else {
+            localStorage.setItem(key, state);
+        }
+    }
+
+    function applyThemeToggleText(state) {
+        if (!themeToggle) return;
+
+        const theme = state[0].toUpperCase() + state.slice(1);
+        themeToggle.innerHTML = `${theme} Mode`;
+    }
+
+    applyThemeToggleText(getCurrentTheme());
+    themeToggle.classList.remove("hidden");
+
+    themeToggle?.addEventListener("click", () => {
+        const current = getCurrentTheme();
+        const next = states[(states.indexOf(current) + 1) % states.length];
+
+        setThemeState(next);
+        applyTheme();
+        applyThemeToggleText(next);
+    });
+</script>

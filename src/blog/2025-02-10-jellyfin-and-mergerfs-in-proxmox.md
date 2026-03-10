@@ -1,5 +1,7 @@
 ---
 title: Jellyfin and mergerfs in Proxmox
+tags: ["tutorial"]
+created: 2025-02-10T00:00:00-05:00
 ---
 
 [![mergerfs github](/uploads/mergerfs.png)](https://github.com/trapexit/mergerfs)

@@ -1,11 +1,12 @@
-<footer class="mt-triple mb-double p-default bg-highlight dark:bg-highlight-dark">
+<footer class="mt-triple mb-double text-center">
     <div>
-        <p>Copyright {% year %} Gene Marks; Content licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
-        <p><a href="/privacy/">Privacy policy</a>; <a href="/terms/">Terms & conditions</a></p>
+        <p>Copyright © {{ metadata.sitePublishedYear }}-{% year %} Gene Marks</p>
+        <a href="/colophon/">Colophon</a>; <a href="https://{{ metadata.goatCounterHost }}/">Web analytics</a>
     </div>
 
     <div class="mt-default">
-        <p>Made with <a href="https://www.11ty.dev/">11ty</a>; <a href="{{ metadata.sourceUrl }}">Source code</a> licensed under <a href="https://opensource.org/license/mit">MIT</a></p>
+        <p>Content licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
+        <p>Build <a href="{{ metadata.sourceUrl }}/commit/{{ build.hash }}">{{ build.hash.slice(0, 7) }}</a>; <a href="{{ metadata.sourceUrl }}">Source code</a> licensed under <a href="https://opensource.org/license/mit">MIT</a></p>
     </div>
 
     <div class="mt-default">

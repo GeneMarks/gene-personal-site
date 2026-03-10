@@ -2,21 +2,35 @@
 layout: layouts/default.html
 ---
 
-<article class="mt-default">
-    <h2>{{ title }}</h2>
-    <aside class="mt-half italic">{{ page.date | formatPostDate }}</aside>
+<article data-pagefind-body>
+    <h2 data-pagefind-meta="title">{{ title }}</h2>
+    <div class="mt-half">
+        <time datetime="{{ created | htmlDateTime }}" class="italic">{{ created | formatPostCreatedDate }}</time>
+    </div>
+
+    {% set postTags = tags | exclude('post') %}
+
+    {% if postTags %}
+        <div>
+            {%- for tag in postTags -%}
+                <a href="/tags/{{ tag | slugify }}">{{ tag }}</a>{{ ', ' if not loop.last }}
+            {%- endfor -%}
+        </div>
+    {% endif %}
 
     {{ content | safe }}
 
-    <aside class="mt-double italic">Modified {{ modified | formatDetailedDateTime }}</aside>
+    <div class="mt-double">
+        <time datetime="{{ page.date | htmlDateTime }}" class="italic">Modified {{ page.date | formatPostModifiedDate }}</time>
+    </div>
 </article>
 
-{% set posts = collections.post %}
-{% set previous = posts | getPreviousCollectionItem %}
+{% set posts = collections.postsByCreated %}
+{% set next = posts | getNextCollectionItem %}
 
-{% if previous %}
+{% if next %}
     <nav>
-        <span>Next: <a href="{{ previous.url }}">{{ previous.data.title }}</a></span>
+        <span>Next: <a href="{{ next.url }}">{{ next.data.title }}</a></span>
     </nav>
 {% endif %}
 
