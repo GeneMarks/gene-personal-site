@@ -5,6 +5,7 @@ export default {
     sitePublishedYear: 2019,
     authorName: "Gene Marks",
     authorEmail: "mail@genemarks.net",
+    authorGithub: "https://github.com/GeneMarks",
     sourceUrl: "https://github.com/GeneMarks/blog.genemarks.net",
     issoHost: "comments.genemarks.net",
     issoAuthorHash: "50e61677beb4",
