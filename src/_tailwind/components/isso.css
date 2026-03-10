@@ -10,7 +10,7 @@
 #isso-thread input[type="submit"],
 #isso-thread input[type="button"] { @apply hover:cursor-pointer; }
 
-#isso-thread input[type="submit"] { @apply py-half px-default text-comment-submit-fg bg-comment-submit-bg hover:bg-comment-submit-bg-hover; }
+#isso-thread input[type="submit"] { @apply py-half px-default rounded-sm text-comment-submit-fg bg-comment-submit-bg hover:bg-comment-submit-bg-hover; }
 #isso-thread input[type="button"] { @apply hover:text-link-hover; }
 
 #isso-thread .isso-auth-section { @apply flex flex-wrap gap-half items-center mt-default; }
