@@ -76,4 +76,4 @@ This site does not use any generative AI. The source code and articles are alway
 If you have any questions at all, feel free to drop me a line at [{{ metadata.authorEmail }}](mailto:{{ metadata.authorEmail }}).
 
 [^1]: This service is self-hosted.
-[^2]: I'm not sure what the future holds for 11ty as my go-to SSG. They've recently launched a Kickstarter regarding a rebrand/reshaping that I honestly hold quite cynical first impressions of. We'll see what happens.
+[^2]: I'm not sure what the future holds for 11ty as my go-to SSG. They've recently launched a Kickstarter regarding a rebrand/reshaping that I honestly hold quite skeptical first impressions of. We'll see what happens.
