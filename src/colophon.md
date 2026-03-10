@@ -33,7 +33,7 @@ Here is a more detailed look at each:
 | localStorage | isso-author | \<username\> | Set if you submit a comment with the `Name` field filled out | ∞ |
 | localStorage | isso-email | \<email address\> | Set if you submit a comment with the *optional* `Email` field filled out | ∞ |
 | localStorage | isso-website | \<website\> | Set if you submit a comment with the *optional* `Website` field filled out | ∞ |
-| cookie | isso-\<comment #\> | \<hash\> | Set when you submit a comment to determine if you can still edit/delete it | <30m |
+| cookie | isso-\<comment #\> | \<hash\> | Set when you submit a comment to determine if you can still edit/delete it | <30min |
 
 If you choose not to use these features, these entries won't affect you.
 
