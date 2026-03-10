@@ -65,8 +65,8 @@
     --color-comment-preview-border:    var(--color-comment-submit-bg);
     --color-comment-author-outline:    var(--color-comment-submit-bg);
     --color-comment-votes-fg:          var(--color-comment-submit-bg);
-    --color-comment-md-block-bg:       var(--color-comment-preview-bg-2);
-    --color-comment-minimize-bg:       var(--color-comment-md-block-bg);
+    --color-comment-md-code-block-bg:  var(--color-comment-preview-bg-2);
+    --color-comment-minimize-bg:       var(--color-comment-md-code-block-bg);
 }
 
 /* Dark mode */
@@ -85,4 +85,8 @@
     --color-code-block-line-highlight: #282d30;
 
     --color-table-odd-bg:              #24292d;
+
+    --color-comment-submit-fg:         #000000;
+    --color-comment-submit-bg:         #f8f9fa;
+    --color-comment-submit-bg-hover:   #ecedee;
 }

@@ -11,7 +11,7 @@
 #isso-thread input[type="button"] { @apply hover:cursor-pointer; }
 
 #isso-thread input[type="submit"] { @apply py-half px-default rounded-sm text-comment-submit-fg bg-comment-submit-bg hover:bg-comment-submit-bg-hover; }
-#isso-thread input[type="button"] { @apply hover:text-link-hover; }
+#isso-thread input[type="button"] { @apply text-link hover:text-link-hover; }
 
 #isso-thread .isso-auth-section { @apply flex flex-wrap gap-half items-center mt-default; }
 #isso-thread .isso-auth-section .isso-input-wrapper {
@@ -41,11 +41,14 @@
 
 #isso-root .isso-comment-footer { @apply mt-default; }
 #isso-root .isso-comment-footer a { @apply no-underline; }
+#isso-root .isso-comment-footer>*:nth-child(5) { @apply ml-default; }
+#isso-root .isso-comment-footer>*:nth-child(n+6) { @apply ml-half; }
+
 #isso-root .isso-comment-footer .isso-votes { @apply mr-half text-comment-votes-fg; }
 #isso-root .isso-comment-footer .isso-upvote,
 #isso-root .isso-comment-footer .isso-downvote { @apply align-middle; }
-#isso-root .isso-comment-footer>*:nth-child(5) { @apply ml-default; }
-#isso-root .isso-comment-footer>*:nth-child(n+6) { @apply ml-half; }
+#isso-root .isso-comment-footer .isso-upvote>svg,
+#isso-root .isso-comment-footer .isso-downvote>svg { @apply fill-current; }
 
 #isso-root .isso-spacer { @apply mx-half opacity-40; }
 #isso-root .isso-author { @apply font-semibold; }
@@ -83,7 +86,7 @@
 #isso-root .isso-comment.minimized .isso-avatar,
 #isso-root .isso-comment.minimized .isso-follow-up,
 #isso-root .isso-comment.minimized .isso-text-wrapper>.isso-text,
-#isso-root .isso-comment.minimized .isso-text-wrapper>.isso-comment-footer { @apply hidden; }
+#isso-root .isso-comment.minimized .isso-text-wrapper>.isso-comment-footer { @apply hidden!; }
 #isso-root .isso-comment.minimized .isso-comment-header { @apply bg-comment-minimize-bg; }
 
 #isso-root .isso-comment.minimized .isso-text-wrapper>.isso-comment-header>.isso-expand-icon { @apply inline-block; }
@@ -93,11 +96,8 @@
 
 #isso-thread .isso-comment .isso-text * { @apply m-0; }
 
-#isso-thread .isso-comment .isso-text pre>code,
-#isso-thread .isso-comment .isso-text blockquote { @apply border-0 bg-comment-md-block-bg; }
-
 #isso-thread .isso-comment .isso-text pre { @apply my-half py-0; }
-#isso-thread .isso-comment .isso-text pre>code { @apply px-default py-half rounded-none; }
+#isso-thread .isso-comment .isso-text pre>code { @apply px-default py-half bg-comment-md-code-block-bg; }
 #isso-thread .isso-comment .isso-text blockquote { @apply my-half; }
 
 #isso-thread .isso-comment .isso-text hr { @apply block my-half invisible; }
