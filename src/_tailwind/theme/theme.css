@@ -64,8 +64,9 @@
     --color-comment-preview-bg-2:      var(--color-table-odd-bg);
     --color-comment-preview-border:    var(--color-comment-submit-bg);
     --color-comment-author-outline:    var(--color-comment-submit-bg);
-    --color-comment-minimize-bg:       var(--color-comment-input-bg);
-    --color-comment-md-code-block-bg:  var(--color-blockquote-bg);
+    --color-comment-votes-fg:          var(--color-comment-submit-bg);
+    --color-comment-md-block-bg:       var(--color-comment-preview-bg-2);
+    --color-comment-minimize-bg:       var(--color-comment-md-block-bg);
 }
 
 /* Dark mode */
