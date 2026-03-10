@@ -83,6 +83,5 @@
     --color-code-block-line-hover:     #222627;
     --color-code-block-line-highlight: #282d30;
 
-    --color-table-even-bg:             var(--color-table-head-bg);
     --color-table-odd-bg:              #24292d;
 }
