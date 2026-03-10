@@ -1,6 +1,6 @@
 export default {
     url: "https://blog.genemarks.net",
-    siteName: "Gene's blog",
+    siteName: "Gene's Blog",
     siteDesc: "Anything that comes to mind",
     authorName: "Gene Marks",
     authorEmail: "mail@genemarks.net",
