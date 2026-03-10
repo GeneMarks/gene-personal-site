@@ -37,7 +37,6 @@ Here is a more detailed look at each:
 
 If you choose not to use these features, these entries won't affect you.
 
-#### Tracking
 I **do not** use any first-party or third-party tracking on this site. For basic, anonymized web analytics, I use a self-hosted service that you can read more about [below](#web-analytics).
 
 ### Services
