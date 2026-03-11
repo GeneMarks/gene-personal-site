@@ -27,13 +27,57 @@ Privacy and transparency are at the forefront of my mind while developing this s
 - 1 `cookie` that lasts a few minutes after commenting to determine if you can still edit/delete
 
 Here is a more detailed look at each:
-| Type | Entry | Value | Description | Lifetime |
-| ---- | ----- | ----- | ----------- | -------- |
-| localStorage | theme | (light\|dark) | Set if you explicitly change the site theme by the button in the header | ∞ |
-| localStorage | isso-author | \<username\> | Set if you submit a comment with the `Name` field filled out | ∞ |
-| localStorage | isso-email | \<email address\> | Set if you submit a comment with the *optional* `Email` field filled out | ∞ |
-| localStorage | isso-website | \<website\> | Set if you submit a comment with the *optional* `Website` field filled out | ∞ |
-| cookie | isso-\<comment #\> | \<hash\> | Set when you submit a comment to determine if you can still edit/delete it | <30min |
+
+<div class="table-wrapper">
+<table class="min-w-180">
+<thead>
+<tr>
+<th>Type</th>
+<th>Entry</th>
+<th>Value</th>
+<th>Description</th>
+<th>Lifetime</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>localStorage</td>
+<td>theme</td>
+<td>(light|dark)</td>
+<td>Set if you explicitly change the site theme by the button in the header</td>
+<td>∞</td>
+</tr>
+<tr>
+<td>localStorage</td>
+<td>isso-author</td>
+<td>&lt;username&gt;</td>
+<td>Set if you submit a comment with the <code>Name</code> field filled out</td>
+<td>∞</td>
+</tr>
+<tr>
+<td>localStorage</td>
+<td>isso-email</td>
+<td>&lt;email address&gt;</td>
+<td>Set if you submit a comment with the <em>optional</em> <code>Email</code> field filled out</td>
+<td>∞</td>
+</tr>
+<tr>
+<td>localStorage</td>
+<td>isso-website</td>
+<td>&lt;website&gt;</td>
+<td>Set if you submit a comment with the <em>optional</em> <code>Website</code> field filled out</td>
+<td>∞</td>
+</tr>
+<tr>
+<td>cookie</td>
+<td>isso-&lt;comment #&gt;</td>
+<td>&lt;hash&gt;</td>
+<td>Set when you submit a comment to determine if you can still edit/delete it</td>
+<td>&lt;30min</td>
+</tr>
+</tbody>
+</table>
+</div>
 
 If you choose not to use these features, these entries won't affect you.
 
