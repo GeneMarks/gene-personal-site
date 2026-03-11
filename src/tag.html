@@ -4,7 +4,10 @@ pagination:
   size: 1
   alias: tag
   filter:
+    - all
     - post
+    - postsByCreated
+    - tagList
 permalink: /tags/{{ tag }}/
 layout: layouts/default.html
 ---
