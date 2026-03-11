@@ -2,11 +2,11 @@
     "name": "blog.genemarks.net",
     "scripts": {
         "dev": "npm-run-all -p dev:*",
-        "build": "npm-run-all -p build:*",
-        "dev:11ty": "eleventy --serve",
+        "build": "npm-run-all build:*",
         "dev:css": "tailwindcss-cli -i ./src/_tailwind/tailwind.css -o ./dist/assets/css/main.css --watch --postcss",
-        "build:11ty": "eleventy",
-        "build:css": "tailwindcss-cli -i ./src/_tailwind/tailwind.css -o ./dist/assets/css/main.css --postcss"
+        "dev:11ty": "eleventy --serve",
+        "build:css": "tailwindcss-cli -i ./src/_tailwind/tailwind.css -o ./dist/assets/css/main.css --postcss",
+        "build:11ty": "eleventy"
     },
     "type": "module",
     "devDependencies": {
