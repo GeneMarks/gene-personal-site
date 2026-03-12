@@ -108,8 +108,6 @@ Don't get me wrong, I love wacky or "themed" websites. I grew up on sites like N
 
 The site should be made of simple, left-to-right top-to-bottom pages with elements rooted in the original design of the web that users are familiar with.
 
-The site's colors need to be clear and functional as well. For instance, I'm not the hugest fan of the Gruvbox dark theme from an aesthetic standpoint, but after swapping back and forth between the pallets offered by Shiki, I couldn't deny my eyes felt vastly more comfortable compared to others.
-
 #### Accessibility
 Approaching web development from an accessibility standpoint is admittedly not something I had even considered for the majority of my time on the internet. Now, making my work accessible is an ongoing learning experience that I remain committed to. I will strive to keep up with best practices and gladly update the site with improvements for users with disabilities.
 
