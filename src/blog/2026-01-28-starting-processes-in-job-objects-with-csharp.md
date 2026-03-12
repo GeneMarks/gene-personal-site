@@ -31,8 +31,12 @@ public static SafeFileHandle CreateJobHandle()
 You'll notice I won't take up space writing any error handling in this article. As a general WinAPI rule, when a system function fails, it will usually return `0`. To obtain the error code and create an exception, you can do something like:
 
 ```cs
-var errorCode = Marshal.GetLastPInvokeError();
-var win32Ex = new Win32Exception(errorCode);
+if (!PInvoke.Win32Function())
+{
+    var errorCode = Marshal.GetLastPInvokeError();
+    var win32Ex = new Win32Exception(errorCode);
+    // Error handling
+}
 ```
 
 With that being said, let's move on to the main course... How can we start a process *in* our newly created job object?
@@ -122,15 +126,13 @@ Next, we'll call the function again to initialize the list. Afterward, we can up
 ```cs
 try
 {
-    if (!PInvoke.InitializeProcThreadAttributeList(list, 1, 0, &size))
-        // Error handling
+    PInvoke.InitializeProcThreadAttributeList(list, 1, 0, &size);
 
     HANDLE jobHandle = (HANDLE)safeJobHandle.DangerousGetHandle();
 
-    if (!PInvoke.UpdateProcThreadAttribute(
+    PInvoke.UpdateProcThreadAttribute(
         list, 0, PInvoke.PROC_THREAD_ATTRIBUTE_JOB_LIST,
-        &jobHandle, (nuint)sizeof(HANDLE)))
-        // Error handling
+        &jobHandle, (nuint)sizeof(HANDLE));
 ```
 
 Now that the attribute list is prepared, we can use it to initialize the process's startup info. We should also ensure that our process's path is the appropriate structure.
@@ -155,11 +157,10 @@ At this point, we can finally create the process:
 ```cs
 PROCESS_INFORMATION pi;
 
-if (!PInvoke.CreateProcess(
+PInvoke.CreateProcess(
     null, ref lpCommandLine, null, null, false,
     PROCESS_CREATION_FLAGS.EXTENDED_STARTUPINFO_PRESENT,
-    null, null, in siex.StartupInfo, out pi))
-    // Error handling
+    null, null, in siex.StartupInfo, out pi);
 ```
 
 Note that [another requirement](https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-createprocessa#parameters) of using extended attributes is that `EXTENDED_STARTUPINFO_PRESENT` *must* be specified in the `dwCreationFlags` parameter of our `CreateProcess` call.
@@ -211,15 +212,13 @@ public sealed class Process : IDisposable
 
         try
         {
-            if (!PInvoke.InitializeProcThreadAttributeList(list, 1, 0, &size))
-                // Error handling
+            PInvoke.InitializeProcThreadAttributeList(list, 1, 0, &size);
 
             HANDLE jobHandle = (HANDLE)safeJobHandle.DangerousGetHandle();
 
-            if (!PInvoke.UpdateProcThreadAttribute(
+            PInvoke.UpdateProcThreadAttribute(
                 list, 0, PInvoke.PROC_THREAD_ATTRIBUTE_JOB_LIST,
-                &jobHandle, (nuint)sizeof(HANDLE)))
-                // Error handling
+                &jobHandle, (nuint)sizeof(HANDLE));
 
             STARTUPINFOEXW siex = new()
             {
@@ -232,11 +231,10 @@ public sealed class Process : IDisposable
 
             PROCESS_INFORMATION pi;
 
-            if (!PInvoke.CreateProcess(
+            PInvoke.CreateProcess(
                 null, ref lpCommandLine, null, null, false,
                 PROCESS_CREATION_FLAGS.EXTENDED_STARTUPINFO_PRESENT,
-                null, null, in siex.StartupInfo, out pi))
-                // Error handling
+                null, null, in siex.StartupInfo, out pi);
 
             SafeHandle = new SafeFileHandle(pi.hProcess, ownsHandle: true);
 
