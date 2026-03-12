@@ -16,7 +16,7 @@
 .shiki .indent:empty { @apply h-lh align-bottom; }
 .shiki .indent::before { @apply absolute w-px h-full opacity-[0.10] bg-current content-['']; }
 
-.darkmode .shiki, .darkmode .shiki span { @apply text-(--shiki-dark)! bg-(--shiki-dark-bg)!; }
+.darkmode .shiki, .darkmode .shiki span { @apply text-(--shiki-dark)! bg-(--color-code-block-bg)!; }
 
 body .shiki .highlighted, .shiki .highlighted span { @apply bg-code-block-line-highlight!; }
 body .shiki .line:not(.highlighted):hover,

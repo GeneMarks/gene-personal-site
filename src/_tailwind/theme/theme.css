@@ -79,9 +79,10 @@
     --color-link-hover:                #9ec5fe;
 
     --color-code-inline-bg:            #2f373f;
+    --color-code-block-bg:             #1e2225;
     --color-code-block-border:         #646f7b;
-    --color-code-block-line-hover:     #222627;
-    --color-code-block-line-highlight: #282d30;
+    --color-code-block-line-hover:     #222629;
+    --color-code-block-line-highlight: #282e32;
 
     --color-table-odd-bg:              #24292d;
 
