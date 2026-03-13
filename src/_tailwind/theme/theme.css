@@ -36,6 +36,7 @@
     --color-link-hover:                #0a58ca;
 
     --color-code-inline-bg:            var(--color-edge);
+    --color-code-block-bg:             #f9f5d7;
     --color-code-block-border:         var(--color-heading);
     --color-code-block-line-hover:     #f4f0d0;
     --color-code-block-line-highlight: #e7e2b9;
