@@ -135,7 +135,7 @@ leaving the final merged directory looking like this:
 │  │  ├─ trailer.mkv
 ```
 
-Because I use Docker for Jellyfin, I also added edited its service file with `systemctl edit docker` to ensure Docker only starts after the merged directory is accessible:
+Because I use Docker for Jellyfin, I also edited its service file with `systemctl edit docker` to ensure Docker only starts after the merged directory is accessible:
 
 ```ini
 [Unit]
