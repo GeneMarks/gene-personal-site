@@ -14,18 +14,21 @@ import attrsPlugin from "./_11ty/plugins/attrsPlugin.js";
 import markPlugin from "./_11ty/plugins/markPlugin.js";
 import tableWrapPlugin from "./_11ty/plugins/tableWrapPlugin.js";
 
+const inputDir = "src";
+const outputDir = "dist";
+
 export const config = {
       htmlTemplateEngine: "njk",
 };
 
 export default function(config) {
-    config.setInputDirectory("src");
-    config.setOutputDirectory("dist");
+    config.setInputDirectory(inputDir);
+    config.setOutputDirectory(outputDir);
 
-    config.addPassthroughCopy("src/assets/**/*");
-    config.addPassthroughCopy("src/uploads/**/*");
-    config.addPassthroughCopy("src/favicon.jpg");
-    config.addPassthroughCopy("src/public_key.asc");
+    config.addPassthroughCopy(`${inputDir}/assets/**/*`);
+    config.addPassthroughCopy(`${inputDir}/uploads/**/*`);
+    config.addPassthroughCopy(`${inputDir}/favicon.jpg`);
+    config.addPassthroughCopy(`${inputDir}/public_key.asc`);
 
     config.addPlugin(collections);
     config.addPlugin(filters);
