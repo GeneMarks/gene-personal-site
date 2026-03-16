@@ -33,7 +33,7 @@ export default function(config) {
     config.addPlugin(filters);
     config.addPlugin(transforms);
     config.addPlugin(shortcodes);
-    config.addPlugin(events, buildDir);
+    config.addPlugin(events);
 
     config.addPlugin(attrsPlugin);
     config.addPlugin(anchorPlugin);

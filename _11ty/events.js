@@ -1,9 +1,9 @@
 import { execSync } from "node:child_process";
 
-export default async function(config, buildDir) {
+export default async function(config) {
 
-    config.on("eleventy.after", () => {
-        execSync(`npx -y pagefind --site ${buildDir} --glob \"**/*.html\"`, { encoding: "utf-8" })
+    config.on("eleventy.after", ({ directories }) => {
+        console.log(directories.output)
+        execSync(`npx -y pagefind --site "${directories.output}" --glob \"**/*.html\"`, { encoding: "utf-8" });
     });
-
 }
