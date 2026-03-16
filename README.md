@@ -1,3 +1,5 @@
+![Gene's Blog header](readme_header.png)
+
 A simple responsive blog made using 11ty and Tailwind CSS.
 
 ## Development
