@@ -14,15 +14,13 @@ import attrsPlugin from "./_11ty/plugins/attrsPlugin.js";
 import markPlugin from "./_11ty/plugins/markPlugin.js";
 import tableWrapPlugin from "./_11ty/plugins/tableWrapPlugin.js";
 
-const buildDir = "dist";
-
 export const config = {
       htmlTemplateEngine: "njk",
 };
 
 export default function(config) {
     config.setInputDirectory("src");
-    config.setOutputDirectory(buildDir);
+    config.setOutputDirectory("dist");
 
     config.addPassthroughCopy("src/assets/**/*");
     config.addPassthroughCopy("src/uploads/**/*");
