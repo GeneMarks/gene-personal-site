@@ -24,7 +24,7 @@ export default async function(config) {
 
             const outputPath = path.join(mermaidsOutputPath, `${inputName}.svg`);
 
-            execSync(`npx -p @mermaid-js/mermaid-cli mmdc -i "${inputPath}" -o "${outputPath}"`);
+            execSync(`npx -p @mermaid-js/mermaid-cli mmdc -i "${inputPath}" -o "${outputPath}" -b transparent`);
         });
     });
 }
