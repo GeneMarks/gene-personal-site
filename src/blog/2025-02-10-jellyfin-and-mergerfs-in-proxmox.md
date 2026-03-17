@@ -21,7 +21,7 @@ If just one thing is taken away, let it be "union filesystem." Essentially, merg
 ### A top-down view
 More specifically, the media itself, located on a NAS, is mounted as an SMB share on the Proxmox host. This share is passed to the Jellyfin container as a R/O mount point. The metadata - including .nfo's, images, and subtitles - are located directly in the container.
 
-![Proxmox with mergerfs flow chart](/uploads/Jellyfin_mergerfs_Proxmox-2026-03-16-194306.svg)
+![Proxmox with mergerfs flow chart](/uploads/mermaid/jellyfin-mergerfs-proxmox.svg)
 
 ### Why merge these directories?
 While I've always preferred the concept of keeping metadata next to my media files, two deal breakers have deterred me:

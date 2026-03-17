@@ -1,0 +1,15 @@
+---
+config:
+  look: classic
+  theme: base
+---
+
+flowchart LR
+  A[("NAS media")] -- SMB share --> B["Proxmox Host"]
+  B -- R/O Mount point --> C{"LXC"}
+  C --> D["Media mount"]@{ shape: doc }
+  C --> E["Metadata (local)"]@{ shape: doc }
+  D --> F["Merged directory"]@{ shape: docs }
+  E --> F
+
+  linkStyle default stroke:#757575,fill:none

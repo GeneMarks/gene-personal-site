@@ -25,10 +25,12 @@ export default function(config) {
     config.setInputDirectory(inputDir);
     config.setOutputDirectory(outputDir);
 
+    config.ignores.add(`${inputDir}/_mermaid`);
     config.ignores.add(`${inputDir}/_tailwind`);
 
     config.addPassthroughCopy(`${inputDir}/assets/**/*`);
     config.addPassthroughCopy(`${inputDir}/uploads/**/*`);
+    config.addPassthroughCopy(`${inputDir}/uploads/mermaid`);
     config.addPassthroughCopy(`${inputDir}/favicon.jpg`);
     config.addPassthroughCopy(`${inputDir}/public_key.asc`);
 
