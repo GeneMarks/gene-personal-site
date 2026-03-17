@@ -1,3 +1,4 @@
+import metadata from "../src/_data/metadata.js";
 import { DateTime } from "luxon";
 
 export default async function(config) {
@@ -8,12 +9,12 @@ export default async function(config) {
     });
 
     config.addFilter("toIsoDateTime", (value) => {
-        return DateTime.fromJSDate(value);
+        return DateTime.fromJSDate(value, { zone: metadata.timeZone });
     });
 
     config.addFilter("formatPostModifiedDate", (value) => {
         return new Intl.DateTimeFormat("en-US", {
-            timeZone: "America/New_York",
+            timeZone: metadata.timeZone,
             weekday: "short",
             year: "numeric",
             month: "short",
@@ -26,7 +27,7 @@ export default async function(config) {
 
     config.addFilter("formatPostCreatedDate", (value) => {
         return new Intl.DateTimeFormat("en-GB", {
-            timeZone: "America/New_York",
+            timeZone: metadata.timeZone,
             year: "numeric",
             month: "short",
             day: "2-digit",
