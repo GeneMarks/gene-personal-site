@@ -5,7 +5,7 @@ layout: layouts/default.html
 <article data-pagefind-body>
     <h2 data-pagefind-meta="title">{{ title }}</h2>
     <div class="mt-half">
-        <time datetime="{{ created | htmlDateTime }}" class="italic">{{ created | formatPostCreatedDate }}</time>
+        <time datetime="{{ created | toIsoDateTime }}" class="italic">{{ created | formatPostCreatedDate }}</time>
     </div>
 
     {% set postTags = tags | exclude('post') %}
@@ -21,7 +21,7 @@ layout: layouts/default.html
     {{ content | safe }}
 
     <div class="mt-double">
-        <time datetime="{{ page.date | htmlDateTime }}" class="italic">Modified {{ page.date | formatPostModifiedDate }}</time>
+        <time datetime="{{ page.date | toIsoDateTime }}" class="italic">Modified {{ page.date | formatPostModifiedDate }}</time>
     </div>
 </article>
 

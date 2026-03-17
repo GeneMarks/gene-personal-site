@@ -7,7 +7,7 @@ export default async function(config) {
         return (collection ?? []).filter(item => item !== stringToFilter);
     });
 
-    config.addFilter("htmlDateTime", (value) => {
+    config.addFilter("toIsoDateTime", (value) => {
         return DateTime.fromJSDate(value);
     });
 

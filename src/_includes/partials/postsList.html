@@ -11,7 +11,7 @@
                 {% if postsLimit is not defined or postsLimit == -1 or loop.index0 < postsLimit %}
                     <tr>
                         <td class="text-right">
-                            <time datetime="{{ post.data.created | htmlDateTime }}">{{ post.data.created | formatPostCreatedDate }}</time>
+                            <time datetime="{{ post.data.created | toIsoDateTime }}">{{ post.data.created | formatPostCreatedDate }}</time>
                         </td>
                         <td class="text-left">
                             <a href="{{ post.url }}">{{ post.data.title }}</a>
