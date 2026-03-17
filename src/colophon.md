@@ -15,6 +15,9 @@ As time goes on, this site continues to grow, shrink, and evolve (and hopefully 
 | CSS Framework | [Tailwind CSS](https://tailwindcss.com/) |
 | Hosting | <a href="https://www.digitalocean.com/" title="DigitalOcean (Not a referral link)"><img src="/uploads/digitalocean.svg" alt="DigitalOcean" class="max-w-28 m-0!"></a> |
 | Server OS | [Debian 13 "trixie"](https://www.debian.org/) |
+| Syntax Highlighting | [Shiki](https://shiki.style/) |
+| Diagramming | [Mermaid](https://github.com/mermaid-js/mermaid-cli) |
+| Search | [Pagefind](https://pagefind.app/) |
 | Comments | [Isso](https://isso-comments.de/) [^1] |
 | Web Analytics | [GoatCounter](https://www.goatcounter.com/) [^1] |
 | Licensing | [Written content licensed under CC BY-NC-SA 4.0; Source code licensed under MIT]({{ metadata.sourceUrl }}/blob/main/LICENSE) |
