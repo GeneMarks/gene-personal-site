@@ -17,5 +17,5 @@ mermaids.forEach((file, _) => {
 
     const outputPath = path.join(mermaidsOutputPath, `${inputName}.svg`);
 
-    execSync(`npx -p @mermaid-js/mermaid-cli mmdc -i "${inputPath}" -o "${outputPath}" -b transparent`, { stdio: "inherit" });
+    execSync(`npx -p @mermaid-js/mermaid-cli mmdc -i "${inputPath}" -o "${outputPath}" -c "mermaid-config.json" -b transparent`, { stdio: "inherit" });
 });

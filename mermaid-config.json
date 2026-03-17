@@ -1,0 +1,9 @@
+{
+    "look": "classic",
+    "theme": "base",
+    "themeVariables": {
+        "fontFamily": "sans-serif",
+        "lineColor": "#757575"
+    },
+    "themeCSS": ".label foreignObject { font-size: 90%; overflow: visible; }"
+}
