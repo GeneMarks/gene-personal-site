@@ -30,6 +30,7 @@ export default function(config) {
     config.addPassthroughCopy(`${inputDir}/uploads/**/*`);
     config.addPassthroughCopy(`${inputDir}/favicon.jpg`);
     config.addPassthroughCopy(`${inputDir}/public_key.asc`);
+    config.addPassthroughCopy(`${inputDir}/robots.txt`);
 
     config.addPlugin(collections);
     config.addPlugin(filters);
