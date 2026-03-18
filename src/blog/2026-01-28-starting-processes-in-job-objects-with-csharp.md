@@ -1,7 +1,7 @@
 ---
 title: Starting processes in job objects with C#
 tags: ["tutorial", "programming"]
-created: 2026-01-28T00:00:00-05:00
+created: 2026-01-28T00:00:00
 ---
 
 Raymond Chen wrote a helpful [article](https://devblogs.microsoft.com/oldnewthing/20230209-00/?p=107812) explaining the safest method of starting a process directly in a job object on Windows 10 and above. (I say "safest", because it avoids a pesky race condition cleanly and effectively; but more on that later.) Working directly with the Windows API in C# is a different story. Nevertheless, it's something we must do when attempting to replicate Chen's logic.

@@ -1,7 +1,7 @@
 ---
 title: Jellyfin and mergerfs in Proxmox
 tags: ["tutorial", "media"]
-created: 2025-02-10T00:00:00-05:00
+created: 2025-02-10T00:00:00
 ---
 
 ==This is not a tutorial for setting up Jellyfin itself.==
