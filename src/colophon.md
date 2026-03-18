@@ -1,6 +1,6 @@
 ---
 title: Colophon
-created: 2026-03-07T00:00:00-05:00
+created: "2026-03-07 00:00:00 America/New_York"
 layout: layouts/post.html
 ---
 
