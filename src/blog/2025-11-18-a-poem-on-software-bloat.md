@@ -1,7 +1,7 @@
 ---
 title: A poem on software bloat
 tags: ["poetry", "programming"]
-created: 2025-11-18T00:00:00
+created: "2025-11-18 00:00:00 America/New_York"
 ---
 
 ### Bloat

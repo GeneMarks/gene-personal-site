@@ -1,5 +1,4 @@
-import metadata from "../src/_data/metadata.js";
-import { DateTime } from "luxon";
+import { asLuxonUTC } from "./utils.js";
 
 export default async function(config) {
 
@@ -8,31 +7,13 @@ export default async function(config) {
         return (collection ?? []).filter(item => item !== stringToFilter);
     });
 
-    config.addFilter("toIsoDateTime", (value) => {
-        return DateTime.fromJSDate(value, { zone: metadata.timeZone });
-    });
+    config.addFilter("toIsoDateTime", (value) =>
+        asLuxonUTC(value).toISO());
 
-    config.addFilter("formatPostModifiedDate", (value) => {
-        return new Intl.DateTimeFormat("en-US", {
-            timeZone: metadata.timeZone,
-            weekday: "short",
-            year: "numeric",
-            month: "short",
-            day: "2-digit",
-            hour: "2-digit",
-            minute: "2-digit",
-            timeZoneName: "short"
-        }).format(value);
-    });
+    config.addFilter("formatPostModifiedDate", (value) =>
+        asLuxonUTC(value).toFormat("ccc, LLL dd, yyyy, hh:mm a ZZZZ"));
 
-    config.addFilter("formatPostCreatedDate", (value) => {
-        return new Intl.DateTimeFormat("en-GB", {
-            timeZone: metadata.timeZone,
-            year: "numeric",
-            month: "short",
-            day: "2-digit",
-        }).format(value)
-          .replace(/ (\d{4})$/, ", $1");
-    });
+    config.addFilter("formatPostCreatedDate", (value) =>
+        asLuxonUTC(value).toFormat("dd LLL, yyyy"));
 
 }

@@ -1,8 +1,11 @@
+import { asLuxonUTC } from "./utils.js";
+
 export default async function(config) {
 
     config.addCollection("postsByCreated", (collectionApi) =>
-        collectionApi.getFilteredByTag("post")
-                     .sort((a, b) => b.data.created - a.data.created));
+        collectionApi
+            .getFilteredByTag("post")
+            .sort((a, b) => asLuxonUTC(b.data.created).valueOf() - asLuxonUTC(a.data.created).valueOf()));
 
     config.addCollection("tagList", (collectionApi) => {
         const filter = ["post"];
